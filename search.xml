@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[使用gradle给旧项目打包]]></title>
+    <url>%2F2017%2F11%2F26%2Fgradle-build-old-project%2F</url>
+    <content type="text"><![CDATA[下载gradle并配置环境变量完成后在命令行输入gradle -v，查看是否配置正确。 建立配置文件在项目根目录新建名为build.gradle的配置文件。 文件中写入如下配置： 123456789101112131415161718192021222324252627282930313233343536apply plugin: 'war'// 设置 JDK 版本sourceCompatibility = 1.6// 设置 WebApp 根目录webAppDirName = 'WebRoot'// 设置 Java 源码所在目录sourceSets &#123; main &#123; java&#123; // 多个目录 srcDirs 单个用 srcDir '' srcDirs = ['soo','jtsrc/main/java','xzsrc/main/java','sxsrc/main/java','ahsrc/main/java','coresrc/main/java'] &#125; resources&#123; // 多个目录 srcDirs 单个用 srcDir '' srcDirs = ['jtsrc/main/resources','xzsrc/main/resources','sxsrc/main/resources','ahsrc/main/resources','coresrc/main/resources'] &#125; &#125;&#125;// 设置 maven 库地址repositories &#123; maven &#123;url "http://maven.aliyun.com/nexus/content/groups/public/"&#125; mavenLocal()&#125;dependencies &#123; tasks.withType(JavaCompile) &#123; options.encoding = "GBK" &#125; // 本地依赖 compileOnly files('F:/lib/ppm/ah/weblogic.jar','F:/lib/ppm/ah/ojdbc14.jar') // 有网络是用maven // providedCompile 'javax.servlet:servlet-api:2.5' // 编译期 compile fileTree(dir: 'WebRoot/WEB-INF/lib', include: ['*.jar'])&#125; 因为我的项目有多个java源文件目录和资源目录所以配置的是srcDirs。如果只有一个目录，配置srcDir即可。至于每个配置项什么含义就需要自己找资料了，基本实现打包功能不需要很多的配置，像srcDir就是配置一下java源代码位置就好了。 编译打包在项目根目录打开命令行窗口，输入指令gradle clean build。如果成功会在结束时出现BUILD SUCCESSFUL。如果没有请查看报错信息，针对性的修改build.gradle里面的配置。 打包完成的war包就在 ./build/libs/目录下。 扩展上面说的都是自己用的，那么要是团队都来使用gradle，该如何统一。 假如现在项目组的同事也想和我一样使用gradle打包，直接的做法就是我将build.gradle提交svn，大家更新下来，安装gradle后，更改自己的本地依赖位置（其实既然使用了gradle，依赖可以都放到maven私有仓库，这样大家可以共用一套配置）。运行gradle clean build即可打包。 按照上面的做法，其实gradle和maven除了配置文件不同，基本没啥区别了。其实gradle提供了另一套便于统一协作的机制-gradlew。使用gradlew需要在项目根目录执行gradle init命令。会生成wapper的配置文件。可以将这些文件一同提交svn，其他同事更新后无需安装gradle，直接执行gradlew clean build。gradle会查找本地的gradle环境，没有的话会根据wapper配置去互联网下载对应版本的gradle进行编译打包。省去自行下载配置环境，还可以保持大家gradle版本的统一。 当然了，国内特殊原因，以及每个开发者所处的网络环境不同，下载速度也会受影响。上面的做法不一定能行的通，如果条件不允许，还是自己手动下载gradle并进行配置。]]></content>
+      <categories>
+        <category>work</category>
+      </categories>
+      <tags>
+        <tag>gradle</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[记PLSQL Developer设置oralce instantclient 进行远程连接经历]]></title>
     <url>%2F2017%2F11%2F10%2Fplsql-oracle%2F</url>
     <content type="text"><![CDATA[相关软件： PLSQL Developer 12(64bit) oracle instantclient-basic-windows.x64-12.2.0.1.0 都可以去对应的官网上下载。 按照网络上博客的教程解压 instantclient-basic-windows.x64-12.2.0.1.0.zip 并配置相应的环境变量以及PLSQL设置，发现 PLSQL Developer 没有远程数据库的配置。并且直接点击连接会提示没有正确安装 oracle 客户端。 搜索类似问题，有博客提到 instantclient12_2 需要 vs2013 运行库支持，让我想起来oracle的下载页面确实有相关提示。下载运行库进行安装，还是没有远程数据库的配置，但是直接点击连接会报oracle的连接错误。这说明现在客户端已经安装正确。应该是相关配置有问题。 重新检查环境变量配置，发现TNS_ADMIN配置错了，重新配置，指定到tnsnames.ora所在目录。测试发现只要该目录下有tnsnames.ora文件即可，不一定非要network/admin目录。但是保险起见，还是设置成network/admin目录。并在该目录下放置tnsnames.ora文件，文件中配置自己的数据库地址信息。 重新打开PLSQL，可以正常连接oracle数据库了。]]></content>

@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="gradle," />
 
 
 
@@ -94,16 +94,18 @@
 
 
 
-<meta name="description" content="老农的代码笔记">
-<meta property="og:type" content="website">
-<meta property="og:title" content="老农的代码笔记">
-<meta property="og:url" content="http://loanon.github.io/categories/work/index.html">
+<meta name="description" content="下载gradle并配置环境变量完成后在命令行输入gradle -v，查看是否配置正确。 建立配置文件在项目根目录新建名为build.gradle的配置文件。 文件中写入如下配置： 123456789101112131415161718192021222324252627282930313233343536apply plugin: &apos;war&apos;// 设置 JDK 版本sourceCompatibil">
+<meta name="keywords" content="gradle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用gradle给旧项目打包">
+<meta property="og:url" content="http://loanon.github.io/2017/11/26/gradle-build-old-project/index.html">
 <meta property="og:site_name" content="老农的代码笔记">
-<meta property="og:description" content="老农的代码笔记">
+<meta property="og:description" content="下载gradle并配置环境变量完成后在命令行输入gradle -v，查看是否配置正确。 建立配置文件在项目根目录新建名为build.gradle的配置文件。 文件中写入如下配置： 123456789101112131415161718192021222324252627282930313233343536apply plugin: &apos;war&apos;// 设置 JDK 版本sourceCompatibil">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:updated_time" content="2017-11-26T01:21:34.062Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="老农的代码笔记">
-<meta name="twitter:description" content="老农的代码笔记">
+<meta name="twitter:title" content="使用gradle给旧项目打包">
+<meta name="twitter:description" content="下载gradle并配置环境变量完成后在命令行输入gradle -v，查看是否配置正确。 建立配置文件在项目根目录新建名为build.gradle的配置文件。 文件中写入如下配置： 123456789101112131415161718192021222324252627282930313233343536apply plugin: &apos;war&apos;// 设置 JDK 版本sourceCompatibil">
 
 
 
@@ -133,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://loanon.github.io/categories/work/"/>
+  <link rel="canonical" href="http://loanon.github.io/2017/11/26/gradle-build-old-project/"/>
 
 
 
 
 
-  <title>分类: work | 老农的代码笔记</title>
+  <title>使用gradle给旧项目打包 | 老农的代码笔记</title>
   
 
 
@@ -158,7 +160,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -306,83 +308,180 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>work<small>分类</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://loanon.github.io/2017/11/26/gradle-build-old-project/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="老农">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="老农的代码笔记">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2017/11/26/gradle-build-old-project/" itemprop="url">
-              
-                <span itemprop="name">使用gradle给旧项目打包</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">使用gradle给旧项目打包</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-26T09:14:28+08:00"
-              content="2017-11-26" >
-          11-26
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-26T09:14:28+08:00">
+                2017-11-26
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/work/" itemprop="url" rel="index">
+                    <span itemprop="name">work</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
+      
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/10/plsql-oracle/" itemprop="url">
-              
-                <span itemprop="name">记PLSQL Developer设置oralce instantclient 进行远程连接经历</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-10T19:55:41+08:00"
-              content="2017-11-10" >
-          11-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
+        <h2 id="下载gradle并配置环境变量"><a href="#下载gradle并配置环境变量" class="headerlink" title="下载gradle并配置环境变量"></a>下载gradle并配置环境变量</h2><p>完成后在命令行输入gradle -v，查看是否配置正确。</p>
+<h2 id="建立配置文件"><a href="#建立配置文件" class="headerlink" title="建立配置文件"></a>建立配置文件</h2><p>在项目根目录新建名为build.gradle的配置文件。</p>
+<p>文件中写入如下配置：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">apply <span class="string">plugin:</span> <span class="string">'war'</span></div><div class="line"></div><div class="line"><span class="comment">// 设置 JDK 版本</span></div><div class="line">sourceCompatibility = <span class="number">1.6</span></div><div class="line"><span class="comment">// 设置 WebApp 根目录</span></div><div class="line">webAppDirName = <span class="string">'WebRoot'</span></div><div class="line"><span class="comment">// 设置 Java 源码所在目录</span></div><div class="line">sourceSets &#123;</div><div class="line">    main &#123;</div><div class="line">        java&#123;</div><div class="line">            <span class="comment">// 多个目录 srcDirs 单个用 srcDir ''</span></div><div class="line">            srcDirs = [<span class="string">'soo'</span>,<span class="string">'jtsrc/main/java'</span>,<span class="string">'xzsrc/main/java'</span>,<span class="string">'sxsrc/main/java'</span>,<span class="string">'ahsrc/main/java'</span>,<span class="string">'coresrc/main/java'</span>]</div><div class="line">        &#125;</div><div class="line">        resources&#123;</div><div class="line">            <span class="comment">// 多个目录 srcDirs 单个用 srcDir ''</span></div><div class="line">            srcDirs = [<span class="string">'jtsrc/main/resources'</span>,<span class="string">'xzsrc/main/resources'</span>,<span class="string">'sxsrc/main/resources'</span>,<span class="string">'ahsrc/main/resources'</span>,<span class="string">'coresrc/main/resources'</span>] </div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 设置 maven 库地址</span></div><div class="line">repositories &#123; </div><div class="line">    maven &#123;url <span class="string">"http://maven.aliyun.com/nexus/content/groups/public/"</span>&#125;</div><div class="line">	mavenLocal()</div><div class="line">&#125;</div><div class="line"></div><div class="line">dependencies &#123;</div><div class="line">	tasks.withType(JavaCompile) &#123;</div><div class="line">		options.encoding = <span class="string">"GBK"</span></div><div class="line">	&#125;</div><div class="line">    <span class="comment">// 本地依赖</span></div><div class="line">    compileOnly files(<span class="string">'F:/lib/ppm/ah/weblogic.jar'</span>,<span class="string">'F:/lib/ppm/ah/ojdbc14.jar'</span>)</div><div class="line">    <span class="comment">// 有网络是用maven </span></div><div class="line">    <span class="comment">// providedCompile 'javax.servlet:servlet-api:2.5' // 编译期</span></div><div class="line">    compile fileTree(<span class="string">dir:</span> <span class="string">'WebRoot/WEB-INF/lib'</span>, <span class="string">include:</span> [<span class="string">'*.jar'</span>])</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>因为我的项目有多个java源文件目录和资源目录所以配置的是srcDirs。如果只有一个目录，配置srcDir即可。至于每个配置项什么含义就需要自己找资料了，基本实现打包功能不需要很多的配置，像srcDir就是配置一下java源代码位置就好了。</p>
+<h2 id="编译打包"><a href="#编译打包" class="headerlink" title="编译打包"></a>编译打包</h2><p>在项目根目录打开命令行窗口，输入指令gradle clean build。如果成功会在结束时出现BUILD　SUCCESSFUL。如果没有请查看报错信息，针对性的修改build.gradle里面的配置。</p>
+<p>打包完成的war包就在 ./build/libs/目录下。</p>
+<a id="more"></a>
+<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><p>上面说的都是自己用的，那么要是团队都来使用gradle，该如何统一。</p>
+<p>假如现在项目组的同事也想和我一样使用gradle打包，直接的做法就是我将build.gradle提交svn，大家更新下来，安装gradle后，更改自己的本地依赖位置（其实既然使用了gradle，依赖可以都放到maven私有仓库，这样大家可以共用一套配置）。运行gradle clean build即可打包。</p>
+<p>按照上面的做法，其实gradle和maven除了配置文件不同，基本没啥区别了。其实gradle提供了另一套便于统一协作的机制-gradlew。使用gradlew需要在项目根目录执行gradle init命令。会生成wapper的配置文件。可以将这些文件一同提交svn，其他同事更新后无需安装gradle，直接执行gradlew clean build。gradle会查找本地的gradle环境，没有的话会根据wapper配置去互联网下载对应版本的gradle进行编译打包。省去自行下载配置环境，还可以保持大家gradle版本的统一。</p>
+<p>当然了，国内特殊原因，以及每个开发者所处的网络环境不同，下载速度也会受影响。上面的做法不一定能行的通，如果条件不允许，还是自己手动下载gradle并进行配置。</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/gradle/" rel="tag"># gradle</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/10/plsql-oracle/" rel="next" title="记PLSQL Developer设置oralce instantclient 进行远程连接经历">
+                <i class="fa fa-chevron-left"></i> 记PLSQL Developer设置oralce instantclient 进行远程连接经历
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -390,6 +489,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -410,8 +513,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -497,6 +609,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载gradle并配置环境变量"><span class="nav-number">1.</span> <span class="nav-text">下载gradle并配置环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建立配置文件"><span class="nav-number">2.</span> <span class="nav-text">建立配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译打包"><span class="nav-number">3.</span> <span class="nav-text">编译打包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展"><span class="nav-number">4.</span> <span class="nav-text">扩展</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -620,10 +748,10 @@
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
