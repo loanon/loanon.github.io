@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[hexo 使用技巧]]></title>
     <url>%2F2017%2F11%2F26%2Fhexo-skill%2F</url>
-    <content type="text"><![CDATA[本博客时用hexo搭建在GitHub上的，写这篇文章只是为了记录一下hexo使用的一些命令和技巧，因为不是天天写博客（实在没那么高产），一段时间hexo命令就有些不记得了，留着记录一下。 1.新建博文 1hexo new 2.清除缓存 1hexo clean 3.生成文档 1hexo g //hexo generate 4.本地起服务预览 1hexo s //hexo server 5.发布到GitHub 1hexo d //hexo deploy 其他命令： hexo new page”pageName” #新建页面 hexo help # 查看帮助 hexo version #查看Hexo的版本 技巧： 1.部署时保证README.md文件不被渲染 _config.yml中配置一下”skip_render”选项 1skip_render: README.md]]></content>
+    <content type="text"><![CDATA[本博客是用hexo搭建在GitHub上的，写这篇文章只是为了记录一下hexo使用的一些命令和技巧，因为不是天天写博客（实在没那么高产），一段时间hexo命令就有些不记得了，记录一下备用。 1.新建博文 1hexo new 2.清除缓存 1hexo clean 3.生成文档 1hexo g //hexo generate 4.本地起服务预览 1hexo s //hexo server 5.发布到GitHub 1hexo d //hexo deploy 其他命令： hexo new page”pageName” #新建页面 hexo help # 查看帮助 hexo version #查看Hexo的版本 技巧： 1.部署时保证README.md文件不被渲染 _config.yml中配置一下”skip_render”选项 1skip_render: README.md]]></content>
       <categories>
         <category>杂记</category>
       </categories>
