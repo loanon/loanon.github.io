@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[hexo 使用技巧]]></title>
+    <url>%2F2017%2F11%2F26%2Fhexo-skill%2F</url>
+    <content type="text"><![CDATA[本博客时用hexo搭建在GitHub上的，写这篇文章只是为了记录一下hexo使用的一些命令和技巧，因为不是天天写博客（实在没那么高产），一段时间hexo命令就有些不记得了，留着记录一下。 1.新建博文 1hexo new 2.清除缓存 1hexo clean 3.生成文档 1hexo g //hexo generate 4.本地起服务预览 1hexo s //hexo server 5.发布到GitHub 1hexo d //hexo deploy 其他命令： hexo new page”pageName” #新建页面 hexo help # 查看帮助 hexo version #查看Hexo的版本 技巧： 1.部署时保证README.md文件不被渲染 _config.yml中配置一下”skip_render”选项 1skip_render: README.md]]></content>
+      <categories>
+        <category>杂记</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[使用gradle给旧项目打包]]></title>
     <url>%2F2017%2F11%2F26%2Fgradle-build-old-project%2F</url>
     <content type="text"><![CDATA[下载gradle并配置环境变量完成后在命令行输入gradle -v，查看是否配置正确。 建立配置文件在项目根目录新建名为build.gradle的配置文件。 文件中写入如下配置： 123456789101112131415161718192021222324252627282930313233343536apply plugin: 'war'// 设置 JDK 版本sourceCompatibility = 1.6// 设置 WebApp 根目录webAppDirName = 'WebRoot'// 设置 Java 源码所在目录sourceSets &#123; main &#123; java&#123; // 多个目录 srcDirs 单个用 srcDir '' srcDirs = ['soo','jtsrc/main/java','xzsrc/main/java','sxsrc/main/java','ahsrc/main/java','coresrc/main/java'] &#125; resources&#123; // 多个目录 srcDirs 单个用 srcDir '' srcDirs = ['jtsrc/main/resources','xzsrc/main/resources','sxsrc/main/resources','ahsrc/main/resources','coresrc/main/resources'] &#125; &#125;&#125;// 设置 maven 库地址repositories &#123; maven &#123;url "http://maven.aliyun.com/nexus/content/groups/public/"&#125; mavenLocal()&#125;dependencies &#123; tasks.withType(JavaCompile) &#123; options.encoding = "GBK" &#125; // 本地依赖 compileOnly files('F:/lib/ppm/ah/weblogic.jar','F:/lib/ppm/ah/ojdbc14.jar') // 有网络是用maven // providedCompile 'javax.servlet:servlet-api:2.5' // 编译期 compile fileTree(dir: 'WebRoot/WEB-INF/lib', include: ['*.jar'])&#125; 因为我的项目有多个java源文件目录和资源目录所以配置的是srcDirs。如果只有一个目录，配置srcDir即可。至于每个配置项什么含义就需要自己找资料了，基本实现打包功能不需要很多的配置，像srcDir就是配置一下java源代码位置就好了。 编译打包在项目根目录打开命令行窗口，输入指令gradle clean build。如果成功会在结束时出现BUILD SUCCESSFUL。如果没有请查看报错信息，针对性的修改build.gradle里面的配置。 打包完成的war包就在 ./build/libs/目录下。 扩展上面说的都是自己用的，那么要是团队都来使用gradle，该如何统一。 假如现在项目组的同事也想和我一样使用gradle打包，直接的做法就是我将build.gradle提交svn，大家更新下来，安装gradle后，更改自己的本地依赖位置（其实既然使用了gradle，依赖可以都放到maven私有仓库，这样大家可以共用一套配置）。运行gradle clean build即可打包。 按照上面的做法，其实gradle和maven除了配置文件不同，基本没啥区别了。其实gradle提供了另一套便于统一协作的机制-gradlew。使用gradlew需要在项目根目录执行gradle init命令。会生成wapper的配置文件。可以将这些文件一同提交svn，其他同事更新后无需安装gradle，直接执行gradlew clean build。gradle会查找本地的gradle环境，没有的话会根据wapper配置去互联网下载对应版本的gradle进行编译打包。省去自行下载配置环境，还可以保持大家gradle版本的统一。 当然了，国内特殊原因，以及每个开发者所处的网络环境不同，下载速度也会受影响。上面的做法不一定能行的通，如果条件不允许，还是自己手动下载gradle并进行配置。]]></content>
