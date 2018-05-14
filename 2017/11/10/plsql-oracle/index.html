@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="相关软件：  PLSQL Developer 12(64bit) oracle instantclient-basic-windows.x64-12.2.0.1.0  都可以去对应的官网上下载。 按照网络上博客的教程解压 instantclient-basic-windows.x64-12.2.0.1.0.zip 并配置相应的环境变量以及PLSQL设置，发现 PLSQL Developer 没有远">
+<meta name="description" content="相关软件：  PLSQL Developer 12(64bit) oracle instantclient-basic-windows.x64-12.2.0.1.0  都可以去对应的官网上下载。">
 <meta name="keywords" content="PL SQL,Oracle">
 <meta property="og:type" content="article">
 <meta property="og:title" content="记PLSQL Developer设置oralce instantclient 进行远程连接经历">
 <meta property="og:url" content="http://loanon.github.io/2017/11/10/plsql-oracle/index.html">
 <meta property="og:site_name" content="老农的代码笔记">
-<meta property="og:description" content="相关软件：  PLSQL Developer 12(64bit) oracle instantclient-basic-windows.x64-12.2.0.1.0  都可以去对应的官网上下载。 按照网络上博客的教程解压 instantclient-basic-windows.x64-12.2.0.1.0.zip 并配置相应的环境变量以及PLSQL设置，发现 PLSQL Developer 没有远">
+<meta property="og:description" content="相关软件：  PLSQL Developer 12(64bit) oracle instantclient-basic-windows.x64-12.2.0.1.0  都可以去对应的官网上下载。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:updated_time" content="2017-11-10T11:57:59.883Z">
+<meta property="og:updated_time" content="2018-05-14T12:07:44.525Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记PLSQL Developer设置oralce instantclient 进行远程连接经历">
-<meta name="twitter:description" content="相关软件：  PLSQL Developer 12(64bit) oracle instantclient-basic-windows.x64-12.2.0.1.0  都可以去对应的官网上下载。 按照网络上博客的教程解压 instantclient-basic-windows.x64-12.2.0.1.0.zip 并配置相应的环境变量以及PLSQL设置，发现 PLSQL Developer 没有远">
+<meta name="twitter:description" content="相关软件：  PLSQL Developer 12(64bit) oracle instantclient-basic-windows.x64-12.2.0.1.0  都可以去对应的官网上下载。">
 
 
 
@@ -417,6 +417,7 @@
 <li>oracle instantclient-basic-windows.x64-12.2.0.1.0</li>
 </ol>
 <p>都可以去对应的官网上下载。</p>
+<a id="more"></a>
 <p>按照网络上博客的教程解压 instantclient-basic-windows.x64-12.2.0.1.0.zip 并配置相应的环境变量以及PLSQL设置，发现 PLSQL Developer 没有远程数据库的配置。并且直接点击连接会提示没有正确安装 oracle 客户端。</p>
 <p>搜索类似问题，有博客提到 instantclient12_2 需要 vs2013 运行库支持，让我想起来oracle的下载页面确实有相关提示。下载运行库进行安装，还是没有远程数据库的配置，但是直接点击连接会报oracle的连接错误。这说明现在客户端已经安装正确。应该是相关配置有问题。</p>
 <p>重新检查环境变量配置，发现TNS_ADMIN配置错了，重新配置，指定到tnsnames.ora所在目录。测试发现只要该目录下有tnsnames.ora文件即可，不一定非要network/admin目录。但是保险起见，还是设置成network/admin目录。并在该目录下放置tnsnames.ora文件，文件中配置自己的数据库地址信息。</p>
@@ -533,7 +534,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -555,7 +556,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -621,7 +622,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
