@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[微信、支付宝付款码二合一(二)]]></title>
+    <url>%2F2018%2F06%2F12%2Falipay-and-wechatpay-2%2F</url>
+    <content type="text"><![CDATA[微信、支付宝付款码二合一(二)接前面一篇，上篇最后说到的微信不能识别是因为没有域名，其实是不对的。其实是因为微信扫码支付和支付宝扫码支付不一样，不是一个http请求。是“wxp”开头的。 为此特意找到之前看到的那篇文章（已经找不到链接了，好像是少数派上面的，有兴趣可以找找看，搜关键字二维码）。 通过分别用微信和支付宝扫文章中合成之后的付款码发现，他们的二维码在微信中就不是直接打开支付界面，而是打开带有微信付款码的页面，通过长按识别二维码进行付款。 所以对上篇中html进行改造，并将页面和二维码图片放到本博客的GitHub仓库下，通过GitHub的页面进行访问，这样微信也是可以打开的。 12345678910111213141516171819202122232425&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt; &lt;title&gt;支付宝-微信扫码支付&lt;/title&gt; &lt;meta charset="UTF-8"/&gt;&lt;/head&gt;&lt;body&gt;&lt;h1 id="message"&gt;&lt;/h1&gt;&lt;div id="wechatPay" style="text-align: center; padding-top: 50px;"&gt;&lt;/div&gt;&lt;/body&gt;&lt;script&gt;function isAlipayOrWechat() &#123; var userAgent = navigator.userAgent.toLowerCase(); if(userAgent.indexOf("alipay") != -1) &#123; window.location.href="HTTPS://QR.ALIPAY.COM/FKX00483JOOAAMITN2W2C1"; &#125; else if(userAgent.indexOf("micromessenger") != -1) &#123; document.getElementById('wechatPay').innerHTML='&lt;img style="width:80%;" src="./wechatPay.svg"&gt;&lt;h1 id="message"&gt;长按识别二维码向我付款&lt;/h1&gt;'; &#125;else&#123; document.getElementById('message').innerHTML="请使用支付宝或者微信扫码"; &#125;&#125;isAlipayOrWechat();&lt;/script&gt;&lt;/html&gt; 看看效果吧！]]></content>
+      <categories>
+        <category>other</category>
+      </categories>
+      <tags>
+        <tag>支付宝</tag>
+        <tag>微信</tag>
+        <tag>扫码支付</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[微信、支付宝付款码二合一]]></title>
-    <url>%2F2018%2F05%2F14%2Falipay-and-wechartpay%2F</url>
+    <url>%2F2018%2F05%2F14%2Falipay-and-wechatpay%2F</url>
     <content type="text"><![CDATA[微信、支付宝付款码二合一前段时间，看到有网站可以将微信和支付宝的付款码合并成一个，觉得很有意思，但是在我准备尝试的时候发现是收费的。 作为一个天天付钱不收钱的，这就没有必要了。其实之前在店里面扫码付钱的时候好像就见过这样的付款码。 今天突发奇想，作为一个码农，自己就可以写一个呀。 思路二合一无非就是微信或者支付宝扫码打开的都是同一个服务请求。服务器接收到请求的时候根据如request中的useragent进行判断。根据判断结果将请求重定向到对应app的地址。 过程这样分析之后我们就需要知道支付宝和微信的useragent都是什么。通过网上查询知道支付宝的useragent中有Alipay，微信的useragent中有micromessenger。 然后就自己动手，在之前搭建的一个web项目中新增加一个方法。 代码完成之后在浏览器访问发现没有反应。将请求地址（局域网地址）生成为二维码。使用手机（与电脑在同一局域网）支付宝扫码测试发现可以打开，微信扫码会提示不是域名访问。处于安全考虑不允许打开。 这么看方法应该是对的，可惜没有买域名和vps，这个也是能自己这么玩玩了。 之后因为微信要是进行服务端重定向需要域名才行，只能到此为止了。 之后突然想到，也可以通过js进行前端的判断，之后通过window.location.href进行“重定向”。 123456789101112131415161718192021&lt;html&gt;&lt;head&gt;&lt;meta charset="UTF-8"/&gt;&lt;/head&gt;&lt;body&gt;&lt;h1 id="message"&gt;&lt;/h1&gt;&lt;/body&gt;&lt;script&gt;function isAlipayOrWechat() &#123; var userAgent = navigator.userAgent.toLowerCase(); if(userAgent.indexOf("alipay") != -1) &#123; window.location.href="HTTPS://QR.ALIPAY.COM/FKX00483JOOAAMITN2W2C1"; &#125; else if(userAgent.indexOf("micromessenger") != -1) &#123; window.location.href="wxp://f2f0fHq8R3hDDhWV4a6sKZrb5_EF0CGMljOP"; &#125;else&#123; document.getElementById('message').innerHTML="请使用支付宝或者微信扫码"; &#125;&#125;isAlipayOrWechat();&lt;/script&gt;&lt;/html&gt; 用nginx在局域网测试发现支付宝是可以成功的。微信前面说了有限制，也就没有尝试了 这样只要一个html就可以，比如可以把这个html放到这个博客里面，这样不就不需要买域名和vps了。 可是当我把文件放到博客之后，还是支付宝可以成功。微信扫码打开就只是一个空白页。看来微信做了限制，不允许通过window.location.href来指定页面请求。 最后目前这个功能也就这样了，后面有机会买了vps和域名，再试试吧，先记一下。]]></content>
+      <categories>
+        <category>other</category>
+      </categories>
       <tags>
         <tag>支付宝</tag>
         <tag>微信</tag>

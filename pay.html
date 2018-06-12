@@ -94,16 +94,17 @@
 
 
 
-<meta name="description" content="老农的代码笔记">
+<meta name="description" content="支付宝-微信扫码支付             function isAlipayOrWechat() {     var userAgent = navigator.userAgent.toLowerCase();     if(userAgent.indexOf(&quot;alipay&quot;) != -1) {         window.location.href=&quot;HTTPS://QR.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="老农的代码笔记">
-<meta property="og:url" content="http://loanon.github.io/archives/2017/11/index.html">
+<meta property="og:url" content="http://loanon.github.io/pay.html">
 <meta property="og:site_name" content="老农的代码笔记">
-<meta property="og:description" content="老农的代码笔记">
+<meta property="og:description" content="支付宝-微信扫码支付             function isAlipayOrWechat() {     var userAgent = navigator.userAgent.toLowerCase();     if(userAgent.indexOf(&quot;alipay&quot;) != -1) {         window.location.href=&quot;HTTPS://QR.">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:updated_time" content="2018-06-12T01:09:21.679Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="老农的代码笔记">
-<meta name="twitter:description" content="老农的代码笔记">
+<meta name="twitter:description" content="支付宝-微信扫码支付             function isAlipayOrWechat() {     var userAgent = navigator.userAgent.toLowerCase();     if(userAgent.indexOf(&quot;alipay&quot;) != -1) {         window.location.href=&quot;HTTPS://QR.">
 
 
 
@@ -133,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://loanon.github.io/archives/2017/11/"/>
+  <link rel="canonical" href="http://loanon.github.io/pay.html"/>
 
 
 
 
 
-  <title>归档 | 老农的代码笔记</title>
+  <title> | 老农的代码笔记</title>
   
 
 
@@ -158,7 +159,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -306,148 +307,62 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
 
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 8 篇日志。 继续努力。
-      </span>
+	<h1 class="post-title" itemprop="name headline"></h1>
+
+
+
+</header>
 
       
+      
+      
+      <div class="post-body">
+        
+        
+          <!DOCTYPE html>
+<html>
+<head>
+    <title>支付宝-微信扫码支付</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1 id="message"></h1>
+<div id="wechatPay" style="text-align: center; padding-top: 50px;">
+</div>
+</body>
+<script>
+function isAlipayOrWechat() {
+    var userAgent = navigator.userAgent.toLowerCase();
+    if(userAgent.indexOf("alipay") != -1) {
+        window.location.href="HTTPS://QR.ALIPAY.COM/FKX00483JOOAAMITN2W2C1";
+    } else if(userAgent.indexOf("micromessenger") != -1) {
+		    document.getElementById('wechatPay').innerHTML='<img style="width:80%;" src="./wechatPay.svg"><h1 id="message">长按识别二维码向我付款</h1>';
+    }else{
+		    document.getElementById('message').innerHTML="请使用支付宝或者微信扫码";
+	}
+}
+isAlipayOrWechat();
+</script>
+
+</html>
 
         
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
-          </div>
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/26/hexo-skill/" itemprop="url">
-              
-                <span itemprop="name">hexo 使用技巧</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-26T09:31:19+08:00"
-              content="2017-11-26" >
-          11-26
-        </time>
       </div>
-
-    </header>
-  </article>
-
-
-
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/26/gradle-build-old-project/" itemprop="url">
-              
-                <span itemprop="name">使用gradle给旧项目打包</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-26T09:14:28+08:00"
-              content="2017-11-26" >
-          11-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/10/plsql-oracle/" itemprop="url">
-              
-                <span itemprop="name">记PLSQL Developer设置oralce instantclient 进行远程连接经历</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-10T19:55:41+08:00"
-              content="2017-11-10" >
-          11-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
-
     </div>
+    
+    
+    
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
@@ -455,6 +370,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -475,8 +394,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -562,6 +490,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#message"><span class="nav-number">1.</span> <span class="nav-text"></span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -685,12 +629,10 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
+  
 
   
 

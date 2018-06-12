@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="支付宝,微信,扫码支付," />
 
 
 
@@ -94,16 +94,20 @@
 
 
 
-<meta name="description" content="老农的代码笔记">
-<meta property="og:type" content="website">
-<meta property="og:title" content="老农的代码笔记">
-<meta property="og:url" content="http://loanon.github.io/archives/2017/11/index.html">
+<meta name="description" content="微信、支付宝付款码二合一(二)接前面一篇，上篇最后说到的微信不能识别是因为没有域名，其实是不对的。其实是因为微信扫码支付和支付宝扫码支付不一样，不是一个http请求。是“wxp”开头的。 为此特意找到之前看到的那篇文章（已经找不到链接了，好像是少数派上面的，有兴趣可以找找看，搜关键字二维码）。 通过分别用微信和支付宝扫文章中合成之后的付款码发现，他们的二维码在微信中就不是直接打开支付界面，而是打开">
+<meta name="keywords" content="支付宝,微信,扫码支付">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信、支付宝付款码二合一(二)">
+<meta property="og:url" content="http://loanon.github.io/2018/06/12/alipay-and-wechatpay-2/index.html">
 <meta property="og:site_name" content="老农的代码笔记">
-<meta property="og:description" content="老农的代码笔记">
+<meta property="og:description" content="微信、支付宝付款码二合一(二)接前面一篇，上篇最后说到的微信不能识别是因为没有域名，其实是不对的。其实是因为微信扫码支付和支付宝扫码支付不一样，不是一个http请求。是“wxp”开头的。 为此特意找到之前看到的那篇文章（已经找不到链接了，好像是少数派上面的，有兴趣可以找找看，搜关键字二维码）。 通过分别用微信和支付宝扫文章中合成之后的付款码发现，他们的二维码在微信中就不是直接打开支付界面，而是打开">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://loanon.github.io/uploads/Alipay&WeChatPay.jpg">
+<meta property="og:updated_time" content="2018-06-12T01:10:38.124Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="老农的代码笔记">
-<meta name="twitter:description" content="老农的代码笔记">
+<meta name="twitter:title" content="微信、支付宝付款码二合一(二)">
+<meta name="twitter:description" content="微信、支付宝付款码二合一(二)接前面一篇，上篇最后说到的微信不能识别是因为没有域名，其实是不对的。其实是因为微信扫码支付和支付宝扫码支付不一样，不是一个http请求。是“wxp”开头的。 为此特意找到之前看到的那篇文章（已经找不到链接了，好像是少数派上面的，有兴趣可以找找看，搜关键字二维码）。 通过分别用微信和支付宝扫文章中合成之后的付款码发现，他们的二维码在微信中就不是直接打开支付界面，而是打开">
+<meta name="twitter:image" content="http://loanon.github.io/uploads/Alipay&WeChatPay.jpg">
 
 
 
@@ -133,13 +137,13 @@
 
 
 
-  <link rel="canonical" href="http://loanon.github.io/archives/2017/11/"/>
+  <link rel="canonical" href="http://loanon.github.io/2018/06/12/alipay-and-wechatpay-2/"/>
 
 
 
 
 
-  <title>归档 | 老农的代码笔记</title>
+  <title>微信、支付宝付款码二合一(二) | 老农的代码笔记</title>
   
 
 
@@ -158,7 +162,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -306,148 +310,179 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://loanon.github.io/2018/06/12/alipay-and-wechatpay-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="老农">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="老农的代码笔记">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">微信、支付宝付款码二合一(二)</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-12T08:45:55+08:00">
+                2018-06-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 8 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/other/" itemprop="url" rel="index">
+                    <span itemprop="name">other</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/26/hexo-skill/" itemprop="url">
-              
-                <span itemprop="name">hexo 使用技巧</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-26T09:31:19+08:00"
-              content="2017-11-26" >
-          11-26
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/26/gradle-build-old-project/" itemprop="url">
-              
-                <span itemprop="name">使用gradle给旧项目打包</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-26T09:14:28+08:00"
-              content="2017-11-26" >
-          11-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/10/plsql-oracle/" itemprop="url">
-              
-                <span itemprop="name">记PLSQL Developer设置oralce instantclient 进行远程连接经历</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-10T19:55:41+08:00"
-              content="2017-11-10" >
-          11-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <h1 id="微信、支付宝付款码二合一-二"><a href="#微信、支付宝付款码二合一-二" class="headerlink" title="微信、支付宝付款码二合一(二)"></a>微信、支付宝付款码二合一(二)</h1><p>接前面一篇，上篇最后说到的微信不能识别是因为没有域名，其实是不对的。其实是因为微信扫码支付和支付宝扫码支付不一样，不是一个http请求。是“wxp”开头的。</p>
+<p>为此特意找到之前看到的那篇文章（已经找不到链接了，好像是少数派上面的，有兴趣可以找找看，搜关键字二维码）。</p>
+<p>通过分别用微信和支付宝扫文章中合成之后的付款码发现，他们的二维码在微信中就不是直接打开支付界面，而是打开带有微信付款码的页面，通过长按识别二维码进行付款。</p>
+<p>所以对上篇中html进行改造，并将页面和二维码图片放到本博客的GitHub仓库下，通过GitHub的页面进行访问，这样微信也是可以打开的。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>支付宝-微信扫码支付<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">id</span>=<span class="string">"message"</span>&gt;</span><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"wechatPay"</span> <span class="attr">style</span>=<span class="string">"text-align: center; padding-top: 50px;"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">function isAlipayOrWechat() &#123;</span></span><br><span class="line"><span class="undefined">    var userAgent = navigator.userAgent.toLowerCase();</span></span><br><span class="line"><span class="undefined">    if(userAgent.indexOf("alipay") != -1) &#123;</span></span><br><span class="line"><span class="undefined">        window.location.href="HTTPS://QR.ALIPAY.COM/FKX00483JOOAAMITN2W2C1";</span></span><br><span class="line"><span class="undefined">    &#125; else if(userAgent.indexOf("micromessenger") != -1) &#123;</span></span><br><span class="line"><span class="xml">        document.getElementById('wechatPay').innerHTML='<span class="tag">&lt;<span class="name">img</span> <span class="attr">style</span>=<span class="string">"width:80%;"</span> <span class="attr">src</span>=<span class="string">"./wechatPay.svg"</span>&gt;</span><span class="tag">&lt;<span class="name">h1</span> <span class="attr">id</span>=<span class="string">"message"</span>&gt;</span>长按识别二维码向我付款<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>';</span></span><br><span class="line"><span class="undefined">    &#125;else&#123;</span></span><br><span class="line"><span class="undefined">        document.getElementById('message').innerHTML="请使用支付宝或者微信扫码";</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined">isAlipayOrWechat();</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>看看效果吧！</p>
+<p><img src="/uploads/Alipay&amp;WeChatPay.jpg" alt="images"></p>
 
       
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/支付宝/" rel="tag"># 支付宝</a>
+          
+            <a href="/tags/微信/" rel="tag"># 微信</a>
+          
+            <a href="/tags/扫码支付/" rel="tag"># 扫码支付</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/14/alipay-and-wechatpay/" rel="next" title="微信、支付宝付款码二合一">
+                <i class="fa fa-chevron-left"></i> 微信、支付宝付款码二合一
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -455,6 +490,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -475,8 +514,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -562,6 +610,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#微信、支付宝付款码二合一-二"><span class="nav-number">1.</span> <span class="nav-text">微信、支付宝付款码二合一(二)</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -685,11 +749,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
 
 
   
