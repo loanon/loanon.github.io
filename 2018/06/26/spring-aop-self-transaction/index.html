@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="写在前面在最近的工作用dubbo修改发布restful协议的时候，与到一个问题，dubbo内部写的是service，控制事务的时候，直接写了一个方法B，把A方法需要事务的内容放在里面。类似下面代码的方式进行调用，结果是事务无效。">
+<meta name="description" content="写在前面在最近的工作用dubbo修改发布restful协议的时候，遇到一个问题，dubbo内部写的是service，控制事务的时候，直接写了一个方法B，把A方法需要事务的内容放在里面。类似下面代码的方式进行调用，结果是事务无效。">
 <meta name="keywords" content="Spring,Transaction">
 <meta property="og:type" content="article">
 <meta property="og:title" content="spring中类内部调用注解@Transaction方法事务失效问题">
 <meta property="og:url" content="http://loanon.github.io/2018/06/26/spring-aop-self-transaction/index.html">
 <meta property="og:site_name" content="老农的代码笔记">
-<meta property="og:description" content="写在前面在最近的工作用dubbo修改发布restful协议的时候，与到一个问题，dubbo内部写的是service，控制事务的时候，直接写了一个方法B，把A方法需要事务的内容放在里面。类似下面代码的方式进行调用，结果是事务无效。">
+<meta property="og:description" content="写在前面在最近的工作用dubbo修改发布restful协议的时候，遇到一个问题，dubbo内部写的是service，控制事务的时候，直接写了一个方法B，把A方法需要事务的内容放在里面。类似下面代码的方式进行调用，结果是事务无效。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:updated_time" content="2018-11-26T02:36:34.932Z">
+<meta property="og:updated_time" content="2018-11-26T02:57:45.044Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="spring中类内部调用注解@Transaction方法事务失效问题">
-<meta name="twitter:description" content="写在前面在最近的工作用dubbo修改发布restful协议的时候，与到一个问题，dubbo内部写的是service，控制事务的时候，直接写了一个方法B，把A方法需要事务的内容放在里面。类似下面代码的方式进行调用，结果是事务无效。">
+<meta name="twitter:description" content="写在前面在最近的工作用dubbo修改发布restful协议的时候，遇到一个问题，dubbo内部写的是service，控制事务的时候，直接写了一个方法B，把A方法需要事务的内容放在里面。类似下面代码的方式进行调用，结果是事务无效。">
 
 
 
@@ -411,7 +411,7 @@
       
 
       
-        <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>在最近的工作用dubbo修改发布restful协议的时候，与到一个问题，dubbo内部写的是service，控制事务的时候，直接写了一个方法B，把A方法需要事务的内容放在里面。类似下面代码的方式进行调用，结果是事务无效。</p>
+        <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>在最近的工作用dubbo修改发布restful协议的时候，遇到一个问题，dubbo内部写的是service，控制事务的时候，直接写了一个方法B，把A方法需要事务的内容放在里面。类似下面代码的方式进行调用，结果是事务无效。</p>
 <a id="more"></a>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span>(<span class="string">"testService"</span>)</span><br><span class="line"><span class="keyword">public</span> TestServiceImpl implments TestService&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 对外的接口方法</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">A</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        ...</span><br><span class="line"></span><br><span class="line">        <span class="keyword">this</span>.B();</span><br><span class="line">        ...</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Transaction</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">B</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>查找一下资料和别人的经历，了解到，spring的aop事务是通过代理实现的，而上面的代码A方法中直接调用B方法是内部直接调用。不会触发spring的代理机制，而是直接调用。所以事务无效。</p>
