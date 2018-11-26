@@ -94,19 +94,19 @@
 
 
 
-<meta name="description" content="微信、支付宝付款码二合一(二)接前面一篇，上篇最后说到的微信不能识别是因为没有域名，其实是不对的。其实是因为微信扫码支付和支付宝扫码支付不一样，不是一个http请求。是“wxp”开头的。 为此特意找到之前看到的那篇文章（已经找不到链接了，好像是少数派上面的，有兴趣可以找找看，搜关键字二维码）。 通过分别用微信和支付宝扫文章中合成之后的付款码发现，他们的二维码在微信中就不是直接打开支付界面，而是打开">
+<meta name="description" content="写在前面接前面一篇，上篇最后说到的微信不能识别是因为没有域名，其实是不对的。其实是因为微信扫码支付和支付宝扫码支付不一样，不是一个http请求。是“wxp”开头的。 为此特意找到之前看到的那篇文章（已经找不到链接了，好像是少数派上面的，有兴趣可以找找看，搜关键字二维码）。">
 <meta name="keywords" content="支付宝,微信,扫码支付">
 <meta property="og:type" content="article">
 <meta property="og:title" content="微信、支付宝付款码二合一(二)">
 <meta property="og:url" content="http://loanon.github.io/2018/06/12/alipay-and-wechatpay-2/index.html">
 <meta property="og:site_name" content="老农的代码笔记">
-<meta property="og:description" content="微信、支付宝付款码二合一(二)接前面一篇，上篇最后说到的微信不能识别是因为没有域名，其实是不对的。其实是因为微信扫码支付和支付宝扫码支付不一样，不是一个http请求。是“wxp”开头的。 为此特意找到之前看到的那篇文章（已经找不到链接了，好像是少数派上面的，有兴趣可以找找看，搜关键字二维码）。 通过分别用微信和支付宝扫文章中合成之后的付款码发现，他们的二维码在微信中就不是直接打开支付界面，而是打开">
+<meta property="og:description" content="写在前面接前面一篇，上篇最后说到的微信不能识别是因为没有域名，其实是不对的。其实是因为微信扫码支付和支付宝扫码支付不一样，不是一个http请求。是“wxp”开头的。 为此特意找到之前看到的那篇文章（已经找不到链接了，好像是少数派上面的，有兴趣可以找找看，搜关键字二维码）。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://loanon.github.io/uploads/Alipay&WeChatPay.jpg">
-<meta property="og:updated_time" content="2018-06-12T01:10:38.124Z">
+<meta property="og:updated_time" content="2018-06-14T09:02:45.065Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信、支付宝付款码二合一(二)">
-<meta name="twitter:description" content="微信、支付宝付款码二合一(二)接前面一篇，上篇最后说到的微信不能识别是因为没有域名，其实是不对的。其实是因为微信扫码支付和支付宝扫码支付不一样，不是一个http请求。是“wxp”开头的。 为此特意找到之前看到的那篇文章（已经找不到链接了，好像是少数派上面的，有兴趣可以找找看，搜关键字二维码）。 通过分别用微信和支付宝扫文章中合成之后的付款码发现，他们的二维码在微信中就不是直接打开支付界面，而是打开">
+<meta name="twitter:description" content="写在前面接前面一篇，上篇最后说到的微信不能识别是因为没有域名，其实是不对的。其实是因为微信扫码支付和支付宝扫码支付不一样，不是一个http请求。是“wxp”开头的。 为此特意找到之前看到的那篇文章（已经找不到链接了，好像是少数派上面的，有兴趣可以找找看，搜关键字二维码）。">
 <meta name="twitter:image" content="http://loanon.github.io/uploads/Alipay&WeChatPay.jpg">
 
 
@@ -413,13 +413,16 @@
       
 
       
-        <h1 id="微信、支付宝付款码二合一-二"><a href="#微信、支付宝付款码二合一-二" class="headerlink" title="微信、支付宝付款码二合一(二)"></a>微信、支付宝付款码二合一(二)</h1><p>接前面一篇，上篇最后说到的微信不能识别是因为没有域名，其实是不对的。其实是因为微信扫码支付和支付宝扫码支付不一样，不是一个http请求。是“wxp”开头的。</p>
+        <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>接前面一篇，上篇最后说到的微信不能识别是因为没有域名，其实是不对的。其实是因为微信扫码支付和支付宝扫码支付不一样，不是一个http请求。是“wxp”开头的。</p>
 <p>为此特意找到之前看到的那篇文章（已经找不到链接了，好像是少数派上面的，有兴趣可以找找看，搜关键字二维码）。</p>
-<p>通过分别用微信和支付宝扫文章中合成之后的付款码发现，他们的二维码在微信中就不是直接打开支付界面，而是打开带有微信付款码的页面，通过长按识别二维码进行付款。</p>
+<a id="more"></a>
+<h1 id="我的方案"><a href="#我的方案" class="headerlink" title="我的方案"></a>我的方案</h1><p>通过分别用微信和支付宝扫文章中合成之后的付款码发现，他们的二维码在微信中就不是直接打开支付界面，而是打开带有微信付款码的页面，通过长按识别二维码进行付款。</p>
 <p>所以对上篇中html进行改造，并将页面和二维码图片放到本博客的GitHub仓库下，通过GitHub的页面进行访问，这样微信也是可以打开的。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>支付宝-微信扫码支付<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">id</span>=<span class="string">"message"</span>&gt;</span><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"wechatPay"</span> <span class="attr">style</span>=<span class="string">"text-align: center; padding-top: 50px;"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">function isAlipayOrWechat() &#123;</span></span><br><span class="line"><span class="undefined">    var userAgent = navigator.userAgent.toLowerCase();</span></span><br><span class="line"><span class="undefined">    if(userAgent.indexOf("alipay") != -1) &#123;</span></span><br><span class="line"><span class="undefined">        window.location.href="HTTPS://QR.ALIPAY.COM/FKX00483JOOAAMITN2W2C1";</span></span><br><span class="line"><span class="undefined">    &#125; else if(userAgent.indexOf("micromessenger") != -1) &#123;</span></span><br><span class="line"><span class="xml">        document.getElementById('wechatPay').innerHTML='<span class="tag">&lt;<span class="name">img</span> <span class="attr">style</span>=<span class="string">"width:80%;"</span> <span class="attr">src</span>=<span class="string">"./wechatPay.svg"</span>&gt;</span><span class="tag">&lt;<span class="name">h1</span> <span class="attr">id</span>=<span class="string">"message"</span>&gt;</span>长按识别二维码向我付款<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>';</span></span><br><span class="line"><span class="undefined">    &#125;else&#123;</span></span><br><span class="line"><span class="undefined">        document.getElementById('message').innerHTML="请使用支付宝或者微信扫码";</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined">isAlipayOrWechat();</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>看看效果吧！</p>
 <p><img src="/uploads/Alipay&amp;WeChatPay.jpg" alt="images"></p>
+<h1 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h1><p>而且我参考的那篇文章中，也有很多人提到，通过第三方平台进行这样的合成存在安全问题。如果自己写的并放在自己的GitHub仓库中，至少不会被别人偷偷修改掉链接地址。</p>
+<p>当然，也许是我考虑的不周全，有建议也希望能向我提出来。</p>
 
       
     </div>
@@ -463,6 +466,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/14/java-webservice-server/" rel="prev" title="Java 搭建WebService服务端">
+                Java 搭建WebService服务端 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -539,7 +546,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -561,7 +568,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -586,7 +593,7 @@
               </span>
             
               <span class="links-of-author-item">
-                <a href="mailto:loanon@qq.com" target="_blank" title="E-Mail">
+                <a href="mailto:loanon@163.com" target="_blank" title="E-Mail">
                   
                     <i class="fa fa-fw fa-envelope"></i>
                   
@@ -620,7 +627,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#微信、支付宝付款码二合一-二"><span class="nav-number">1.</span> <span class="nav-text">微信、支付宝付款码二合一(二)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我的方案"><span class="nav-number">2.</span> <span class="nav-text">我的方案</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#写在最后"><span class="nav-number">3.</span> <span class="nav-text">写在最后</span></a></li></ol></div>
             
 
           </div>

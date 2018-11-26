@@ -322,6 +322,442 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://loanon.github.io/2018/11/26/plsql-garble/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="老农">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="老农的代码笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/26/plsql-garble/" itemprop="url">解决plsql中文乱码问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-26T10:11:42+08:00">
+                2018-11-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/work/" itemprop="url" rel="index">
+                    <span itemprop="name">work</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>步骤一：执行在plsql中执行 select userenv(‘language’) from dual; 语句来查看字符集。</p>
+<p>步骤二：在环境变量中添加配置信息，名称为NLS_LANG，值为步骤一中的结果。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://loanon.github.io/2018/06/26/spring-aop-self-transaction/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="老农">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="老农的代码笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/26/spring-aop-self-transaction/" itemprop="url">spring中类内部调用注解@Transaction方法事务失效问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-26T10:14:32+08:00">
+                2018-06-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/work/" itemprop="url" rel="index">
+                    <span itemprop="name">work</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>在最近的工作用dubbo修改发布restful协议的时候，与到一个问题，dubbo内部写的是service，控制事务的时候，直接写了一个方法B，把A方法需要事务的内容放在里面。类似下面代码的方式进行调用，结果是事务无效。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/06/26/spring-aop-self-transaction/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://loanon.github.io/2018/06/14/java-webservice-server/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="老农">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="老农的代码笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/14/java-webservice-server/" itemprop="url">Java 搭建WebService服务端</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-14T16:59:52+08:00">
+                2018-06-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/work/" itemprop="url" rel="index">
+                    <span itemprop="name">work</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>之前在工作中遇到了和其他公司系统对接问题，对方提供的WebService接口，通过对接工作对WebService有了一定的了解。</p>
+<p>现在公司也有微服务项目，主要使用的是dubbo，并定制化的加入了restful协议（详见当当网开源的dubbox）。WebService主要还是在一些老项目中使用，最近在进行一个老项目的重构改造工作，其中给其他项目提供的WebService接口要一并重写。要求呢，调用方直接修改接口地址即可。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/06/14/java-webservice-server/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://loanon.github.io/2018/06/12/alipay-and-wechatpay-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -414,16 +850,15 @@
 
       
         
-          
-            <h1 id="微信、支付宝付款码二合一-二"><a href="#微信、支付宝付款码二合一-二" class="headerlink" title="微信、支付宝付款码二合一(二)"></a>微信、支付宝付款码二合一(二)</h1><p>接前面一篇，上篇最后说到的微信不能识别是因为没有域名，其实是不对的。其实是因为微信扫码支付和支付宝扫码支付不一样，不是一个http请求。是“wxp”开头的。</p>
+          <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>接前面一篇，上篇最后说到的微信不能识别是因为没有域名，其实是不对的。其实是因为微信扫码支付和支付宝扫码支付不一样，不是一个http请求。是“wxp”开头的。</p>
 <p>为此特意找到之前看到的那篇文章（已经找不到链接了，好像是少数派上面的，有兴趣可以找找看，搜关键字二维码）。</p>
-<p>通过分别用微信和支付宝扫文章中合成之后的付款码发现，他们的二维码在微信中就不是直接打开支付界面，而是打开带有微信付款码的页面，通过长按识别二维码进行付款。</p>
-<p>所以对上篇中html进行改造，并将页面和二维码图片放到本博客的GitHub仓库下，通过GitHub的页面进行访问，这样微信也是可以打开的。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>支付宝-微信扫码支付<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">id</span>=<span class="string">"message"</span>&gt;</span><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"wechatPay"</span> <span class="attr">style</span>=<span class="string">"text-align: center; padding-top: 50px;"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">function isAlipayOrWechat() &#123;</span></span><br><span class="line"><span class="undefined">    var userAgent = navigator.userAgent.toLowerCase();</span></span><br><span class="line"><span class="undefined">    if(userAgent.indexOf("alipay") != -1) &#123;</span></span><br><span class="line"><span class="undefined">        window.location.href="HTTPS://QR.ALIPAY.COM/FKX00483JOOAAMITN2W2C1";</span></span><br><span class="line"><span class="undefined">    &#125; else if(userAgent.indexOf("micromessenger") != -1) &#123;</span></span><br><span class="line"><span class="xml">        document.getElementById('wechatPay').innerHTML='<span class="tag">&lt;<span class="name">img</span> <span class="attr">style</span>=<span class="string">"width:80%;"</span> <span class="attr">src</span>=<span class="string">"./wechatPay.svg"</span>&gt;</span><span class="tag">&lt;<span class="name">h1</span> <span class="attr">id</span>=<span class="string">"message"</span>&gt;</span>长按识别二维码向我付款<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>';</span></span><br><span class="line"><span class="undefined">    &#125;else&#123;</span></span><br><span class="line"><span class="undefined">        document.getElementById('message').innerHTML="请使用支付宝或者微信扫码";</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined">isAlipayOrWechat();</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>看看效果吧！</p>
-<p><img src="/uploads/Alipay&amp;WeChatPay.jpg" alt="images"></p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/06/12/alipay-and-wechatpay-2/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -562,7 +997,7 @@
 
       
         
-          <h1 id="微信、支付宝付款码二合一"><a href="#微信、支付宝付款码二合一" class="headerlink" title="微信、支付宝付款码二合一"></a>微信、支付宝付款码二合一</h1><p>前段时间，看到有网站可以将微信和支付宝的付款码合并成一个，觉得很有意思，但是在我准备尝试的时候发现是收费的。</p>
+          <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>前段时间，看到有网站可以将微信和支付宝的付款码合并成一个，觉得很有意思，但是在我准备尝试的时候发现是收费的。</p>
 <p>作为一个天天付钱不收钱的，这就没有必要了。其实之前在店里面扫码付钱的时候好像就见过这样的付款码。</p>
 <p>今天突发奇想，作为一个码农，自己就可以写一个呀。</p>
           <!--noindex-->
@@ -980,8 +1415,8 @@
 
       
         
-          <h2 id="下载gradle并配置环境变量"><a href="#下载gradle并配置环境变量" class="headerlink" title="下载gradle并配置环境变量"></a>下载gradle并配置环境变量</h2><p>完成后在命令行输入gradle -v，查看是否配置正确。</p>
-<h2 id="建立配置文件"><a href="#建立配置文件" class="headerlink" title="建立配置文件"></a>建立配置文件</h2><p>在项目根目录新建名为build.gradle的配置文件。</p>
+          <h1 id="下载gradle并配置环境变量"><a href="#下载gradle并配置环境变量" class="headerlink" title="下载gradle并配置环境变量"></a>下载gradle并配置环境变量</h1><p>完成后在命令行输入gradle -v，查看是否配置正确。</p>
+<h1 id="建立配置文件"><a href="#建立配置文件" class="headerlink" title="建立配置文件"></a>建立配置文件</h1><p>在项目根目录新建名为build.gradle的配置文件。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/11/26/gradle-build-old-project/#more" rel="contents">
@@ -1320,155 +1755,13 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://loanon.github.io/2017/08/18/java-webservice/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="老农">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="老农的代码笔记">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/18/java-webservice/" itemprop="url">Java 调用第三方 webservice 服务</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-18T15:55:27+08:00">
-                2017-08-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/study/" itemprop="url" rel="index">
-                    <span itemprop="name">study</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="原由"><a href="#原由" class="headerlink" title="原由"></a>原由</h2><p>公司要求我们的系统要和第三方系统同步数据。跟第三方沟通之后发现对方提供的是 webservice 接口，作为没有接触过 webservice 的小白，表示有点慌。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/18/java-webservice/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1512,7 +1805,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1534,7 +1827,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1559,7 +1852,7 @@
               </span>
             
               <span class="links-of-author-item">
-                <a href="mailto:loanon@qq.com" target="_blank" title="E-Mail">
+                <a href="mailto:loanon@163.com" target="_blank" title="E-Mail">
                   
                     <i class="fa fa-fw fa-envelope"></i>
                   

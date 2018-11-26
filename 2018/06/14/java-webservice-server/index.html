@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Java,WebService," />
 
 
 
@@ -94,16 +94,18 @@
 
 
 
-<meta name="description" content="老农的代码笔记">
-<meta property="og:type" content="website">
-<meta property="og:title" content="老农的代码笔记">
-<meta property="og:url" content="http://loanon.github.io/archives/2018/06/index.html">
+<meta name="description" content="写在前面之前在工作中遇到了和其他公司系统对接问题，对方提供的WebService接口，通过对接工作对WebService有了一定的了解。 现在公司也有微服务项目，主要使用的是dubbo，并定制化的加入了restful协议（详见当当网开源的dubbox）。WebService主要还是在一些老项目中使用，最近在进行一个老项目的重构改造工作，其中给其他项目提供的WebService接口要一并重写。要求呢">
+<meta name="keywords" content="Java,WebService">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 搭建WebService服务端">
+<meta property="og:url" content="http://loanon.github.io/2018/06/14/java-webservice-server/index.html">
 <meta property="og:site_name" content="老农的代码笔记">
-<meta property="og:description" content="老农的代码笔记">
+<meta property="og:description" content="写在前面之前在工作中遇到了和其他公司系统对接问题，对方提供的WebService接口，通过对接工作对WebService有了一定的了解。 现在公司也有微服务项目，主要使用的是dubbo，并定制化的加入了restful协议（详见当当网开源的dubbox）。WebService主要还是在一些老项目中使用，最近在进行一个老项目的重构改造工作，其中给其他项目提供的WebService接口要一并重写。要求呢">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:updated_time" content="2018-11-26T02:06:27.395Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="老农的代码笔记">
-<meta name="twitter:description" content="老农的代码笔记">
+<meta name="twitter:title" content="Java 搭建WebService服务端">
+<meta name="twitter:description" content="写在前面之前在工作中遇到了和其他公司系统对接问题，对方提供的WebService接口，通过对接工作对WebService有了一定的了解。 现在公司也有微服务项目，主要使用的是dubbo，并定制化的加入了restful协议（详见当当网开源的dubbox）。WebService主要还是在一些老项目中使用，最近在进行一个老项目的重构改造工作，其中给其他项目提供的WebService接口要一并重写。要求呢">
 
 
 
@@ -133,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://loanon.github.io/archives/2018/06/"/>
+  <link rel="canonical" href="http://loanon.github.io/2018/06/14/java-webservice-server/"/>
 
 
 
 
 
-  <title>归档 | 老农的代码笔记</title>
+  <title>Java 搭建WebService服务端 | 老农的代码笔记</title>
   
 
 
@@ -158,7 +160,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -306,148 +308,194 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://loanon.github.io/2018/06/14/java-webservice-server/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="老农">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="老农的代码笔记">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">Java 搭建WebService服务端</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-14T16:59:52+08:00">
+                2018-06-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 11 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/work/" itemprop="url" rel="index">
+                    <span itemprop="name">work</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h2 class="archive-year motion-element" id="archive-year-2018">2018</h2>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/06/26/spring-aop-self-transaction/" itemprop="url">
-              
-                <span itemprop="name">spring中类内部调用注解@Transaction方法事务失效问题</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-06-26T10:14:32+08:00"
-              content="2018-06-26" >
-          06-26
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/06/14/java-webservice-server/" itemprop="url">
-              
-                <span itemprop="name">Java 搭建WebService服务端</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-06-14T16:59:52+08:00"
-              content="2018-06-14" >
-          06-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/06/12/alipay-and-wechatpay-2/" itemprop="url">
-              
-                <span itemprop="name">微信、支付宝付款码二合一(二)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-06-12T08:45:55+08:00"
-              content="2018-06-12" >
-          06-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>之前在工作中遇到了和其他公司系统对接问题，对方提供的WebService接口，通过对接工作对WebService有了一定的了解。</p>
+<p>现在公司也有微服务项目，主要使用的是dubbo，并定制化的加入了restful协议（详见当当网开源的dubbox）。WebService主要还是在一些老项目中使用，最近在进行一个老项目的重构改造工作，其中给其他项目提供的WebService接口要一并重写。要求呢，调用方直接修改接口地址即可。</p>
+<a id="more"></a>
+<h1 id="Java-开发WebService服务端"><a href="#Java-开发WebService服务端" class="headerlink" title="Java 开发WebService服务端"></a>Java 开发WebService服务端</h1><h2 id="xfire"><a href="#xfire" class="headerlink" title="xfire"></a>xfire</h2><p>查看项目老代码，老代码使用的是xfire搭建的WebService服务。基于要和原有服务保持一致的想法，准备使用xfire。</p>
+<p>在项目中加入xfire依赖和相应配置，启动一直报错。百度发现，是因为xfire已经很久没更新，当时的spring 是2.x ，现在我们使用的spring是4.x。等于说这2个不兼容。遂决定放弃，另求他法。因此xfire方式就不细写了。有兴趣百度教程有很多。</p>
+<h2 id="cxf"><a href="#cxf" class="headerlink" title="cxf"></a>cxf</h2><p>cxf 是Apache的项目，相比于xfire来说是一直在更新的，网上教程也很多。我主要借鉴的是<a href="https://blog.csdn.net/khsay/article/details/78054741" target="_blank" rel="noopener">https://blog.csdn.net/khsay/article/details/78054741</a>。因为我是在原有项目中搭建的。文中只提取了WebService部分，可能会有错误。有问题可以与我讨论，或者查看我借鉴的这篇文章。</p>
+<h3 id="项目添加依赖"><a href="#项目添加依赖" class="headerlink" title="项目添加依赖"></a>项目添加依赖</h3><p>我们项目用的是gradle作为构建工具</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">compile <span class="string">group:</span> <span class="string">'org.apache.cxf'</span>, <span class="string">name:</span> <span class="string">'cxf-rt-frontend-jaxws'</span>, <span class="string">version:</span> <span class="string">'3.2.4'</span></span><br><span class="line">compile <span class="string">group:</span> <span class="string">'org.apache.cxf'</span>, <span class="string">name:</span> <span class="string">'cxf-rt-transports-http'</span>, <span class="string">version:</span> <span class="string">'3.2.4'</span></span><br><span class="line">compile <span class="string">group:</span> <span class="string">'org.apache.cxf'</span>, <span class="string">name:</span> <span class="string">'cxf-rt-ws-security'</span>, <span class="string">version:</span> <span class="string">'3.2.4'</span></span><br></pre></td></tr></table></figure>
+<h3 id="创建接口和实现类"><a href="#创建接口和实现类" class="headerlink" title="创建接口和实现类"></a>创建接口和实现类</h3><p>接口类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> io.github.loanon.webservice.api;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.jws.WebMethod;</span><br><span class="line"><span class="keyword">import</span> javax.jws.WebService;</span><br><span class="line"></span><br><span class="line"><span class="meta">@WebService</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">DemoService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@WebMethod</span></span><br><span class="line">    <span class="function">String <span class="title">callService</span><span class="params">(String xmlStr)</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>实现类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> io.github.loanon.webservice.api.impl;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.jws.WebService;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Service;</span><br><span class="line"><span class="keyword">import</span> io.github.loanon.webservice.api.DemoService</span><br><span class="line"></span><br><span class="line"><span class="meta">@Service</span>(<span class="string">"demoService"</span>)</span><br><span class="line"><span class="meta">@WebService</span>(targetNamespace = <span class="string">"https://services.webServices.loanon.github.io"</span>, serviceName = <span class="string">"demoService"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoServiceImpl</span> <span class="keyword">implements</span> <span class="title">DemoService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">callService</span><span class="params">(String xmlStr)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//TODO your code</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="XML配置"><a href="#XML配置" class="headerlink" title="XML配置"></a>XML配置</h3><p>添加spring-cxf.xml并在spring的applicationContext.xml中引入</p>
+<p>applicationContext.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- webService --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">import</span> <span class="attr">resource</span>=<span class="string">"classpath:spring-config/spring.cxf.xml"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>spring-cxf.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:cxf</span>=<span class="string">"http://cxf.apache.org/core"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:jaxws</span>=<span class="string">"http://cxf.apache.org/jaxws"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans</span></span></span><br><span class="line"><span class="tag"><span class="string">       http://www.springframework.org/schema/beans/spring-beans.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">        http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">        http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--发布服务--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">jaxws:endpoint</span> <span class="attr">id</span>=<span class="string">"DemoService"</span> <span class="attr">implementor</span>=<span class="string">"io.github.loanon.webservice.api.impl.DemoServiceImpl"</span> <span class="attr">address</span>=<span class="string">"/demoService"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">jaxws:endpoint</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">cxf:bus</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">cxf:features</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">cxf:logging</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">cxf:features</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">cxf:bus</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在web.xml中加入cxf的Servlet。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--cxf --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>cxf<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>org.apache.cxf.transport.servlet.CXFServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>cxf<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/ws/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><p>浏览器访问<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 写在最后</span><br><span class="line"></span><br><span class="line">前面说到要保持和原有项目平滑过渡。就是说对于调用方只需要改一下地址，不用改代码就可以直接调用新服务。所以尽量和原有服务在协议上保持一致，目前看到的时候请求报文中会有方法名，所以只将方法名保持一致。当然这个有待测试。只有等联调结果，才能确定。</span><br><span class="line"></span><br><span class="line">soapUI 中WebService的请求报文。</span><br><span class="line"></span><br><span class="line">```xml</span><br><span class="line">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:api=&quot;http://api.webservice.loanon.github.io/&quot;&gt;</span><br><span class="line">    &lt;soapenv:Header/&gt;</span><br><span class="line">    &lt;soapenv:Body&gt;</span><br><span class="line">         &lt;!-- 这个节点有方法名信息 --&gt;</span><br><span class="line">        &lt;api:callService&gt;</span><br><span class="line">            &lt;!--Optional:--&gt;</span><br><span class="line">            &lt;arg0&gt;?&lt;/arg0&gt;</span><br><span class="line">        &lt;/api:callService&gt;</span><br><span class="line">    &lt;/soapenv:Body&gt;</span><br><span class="line">&lt;/soapenv:Envelope&gt;</span><br></pre></td></tr></table></figure></p>
 
       
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/WebService/" rel="tag"># WebService</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/12/alipay-and-wechatpay-2/" rel="next" title="微信、支付宝付款码二合一(二)">
+                <i class="fa fa-chevron-left"></i> 微信、支付宝付款码二合一(二)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/26/spring-aop-self-transaction/" rel="prev" title="spring中类内部调用注解@Transaction方法事务失效问题">
+                spring中类内部调用注解@Transaction方法事务失效问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -455,6 +503,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -475,8 +527,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -562,6 +623,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java-开发WebService服务端"><span class="nav-number">2.</span> <span class="nav-text">Java 开发WebService服务端</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#xfire"><span class="nav-number">2.1.</span> <span class="nav-text">xfire</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cxf"><span class="nav-number">2.2.</span> <span class="nav-text">cxf</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#项目添加依赖"><span class="nav-number">2.2.1.</span> <span class="nav-text">项目添加依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建接口和实现类"><span class="nav-number">2.2.2.</span> <span class="nav-text">创建接口和实现类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XML配置"><span class="nav-number">2.2.3.</span> <span class="nav-text">XML配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#验证"><span class="nav-number">2.2.4.</span> <span class="nav-text">验证</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -685,11 +762,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
 
 
   
