@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[京东宙斯对接(一)]]></title>
+    <url>%2F2018%2F12%2F11%2Fjd-jos-dev-1%2F</url>
+    <content type="text"><![CDATA[最新家里做京东的朋友问我能不能做一个订单管理发货的系统。稍微聊了下，就是能拿到京东系统的订单列表，然后让供货商能打印订单的快递单进行发货。我想想觉得应该也不是很难，毕竟不是很多人用的大系统，而且他也说看着做一下（当然是不给钱的）我也就答应了。要求不高，顺便练练手吧。 因为需要拿到京东订单的信息。所以肯定要找京东要接口拿数据的。本来是准备全部弄好，完整的写一下对接过程的。但是因为遇到京东的订单数据接口必须要在京东云鼎服务器调用，我们合计了一下，现在店里订单少，可以用管易等OMS发货。可以等量大了再自己部署系统。所以我可以慢慢研究京东的接口。 不得不吐槽一下京东的接口： 文档极其简单-很多字段没有描述，入参必填字段，比如状态，没有备选项，你让我传什么呀？还有接口分类估计20+，没有搜索，一个下拉，找一个分类能把眼看花。 没有沙箱环境-直接拿生产数据开发（笑哭），之前看支付宝的接口就给了很好的沙箱环境。差距呀！！！ 部分接口必须云鼎调用-这点我真心觉得京东就是圈钱，让你买它的服务器，还说是为了安全。看了下，最低配（1核+4G+40G+1Mbps）最便宜160一个月（这也是我们决定先不用的原因，算下来订单量小，用不起来就不划算了） 所以一时半会儿应该是搞不完。那就慢慢弄，为了怕忘记了，先有一点记一点。 一、创建应用京东接口的SDK是不能直接下载的。需要先创建应用，申请接口，才能下载有权限接口的SDK。 然后尴尬的事情来了，创建应用的时候要求对系统功能进行截图，我没接口，没SDK，没数据我怎么开发功能？没功能，就没截图，就没办法申请应用。 不知道是不是我想多了，眼看就是死循环了。我找京东的客服，等了2天给我回了一个链接。关键我早就看过了，要是能看这个搞定，我问你干嘛？最后我直接问他原型的截图行不行？他说可以。那就好办了。随便截了几张图，把文档填了，创建了一个应用（因为用的商家账号，创建的是商家自研应用）。不到半天就显示审核通过了。这时候不得不再次吐槽一下，这个申请没这么麻烦就是不写清楚。 总的来说，创建应用的步骤，京东的文档还是介绍的很清楚，但是对于具体要求没有明确。所以要是想申请可以抱着试试看的态度，先提交。不过咱再改就是了。 申请接口有了应用，就可以申请接口，我是把能申请的都点了，想着我直接看介绍根本看不出来都是干啥的，我只能通过api调试，看下接口能拿回哪些数据，来猜测是什么接口。比如商品API和商品通API，毕竟我们做开发的不是专业营销管理的，看到这2个词我根本分不清有啥区别。因为需要商品列表数据，我把这2个分类下的都申请了。有部分是直接审核通过的，有些现在都还是审核中。 下载生成SDK其实这些接口很容易理解，就是一个http(s)请求，所谓的SDK就是把这些请求封装成java方法，方便开发。 我在找京东对接教程的时候，就看到有人把SDK自己重写了。还有网上对应的教程实在是太少了，要不就是京东之前还是360buy的时候的接口。 在应用的接口管理界面，点击下载SDK，会下载一个open-api-sdk-2.0.jar和open-api-sdk-2.0-sources.jar文件。我建议open-api-sdk-2.0-sources.jar里面的源码改造成一个项目（pom文件在open-api-sdk-2.0.jar里面），这样可以直接安装到本地仓库或者其他私有仓库。当然可以直接把open-api-sdk-2.0.jar安装到仓库中，但是这样pom文件里面的依赖就读不出来。貌似网上有人吐槽过这个事情。 后面就可以直接进行开发了。提一下京东现在有些接口只能在他们的云鼎中调用。比如订单相关，就是说要买他们的服务器才行。]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>京东</tag>
+        <tag>对接</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[oracle查询not in的子查询结果存在null的时候查询不出结果]]></title>
+    <url>%2F2018%2F12%2F07%2Foracle-not-in-null%2F</url>
+    <content type="text"><![CDATA[问题：明明子查询查询不到的数据，使用not in后竟然查不出来。 原因：子查询的结果集还包含其他有null的值。 处理：使用exists或者子查询过滤null值]]></content>
+      <categories>
+        <category>work</category>
+      </categories>
+      <tags>
+        <tag>oracle</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[解决plsql中文乱码问题]]></title>
     <url>%2F2018%2F11%2F26%2Fplsql-garble%2F</url>
     <content type="text"><![CDATA[步骤一：在plsql中执行 select userenv(‘language’) from dual; 语句来查看字符集。 步骤二：在环境变量中添加配置信息，名称为NLS_LANG，值为步骤一中的结果。]]></content>
@@ -34,7 +57,7 @@
   <entry>
     <title><![CDATA[spring中类内部调用注解@Transaction方法事务失效问题]]></title>
     <url>%2F2018%2F06%2F26%2Fspring-aop-self-transaction%2F</url>
-    <content type="text"><![CDATA[写在前面在最近的工作用dubbo修改发布restful协议的时候，遇到一个问题，dubbo内部写的是service，控制事务的时候，直接写了一个方法B，把A方法需要事务的内容放在里面。类似下面代码的方式进行调用，结果是事务无效。 12345678910111213141516171819202122@Service("testService")public TestServiceImpl implments TestService&#123; /** * 对外的接口方法 */ public String A()&#123; ... this.B(); ... &#125; @Transaction private String B()&#123; &#125;&#125; 原因查找一下资料和别人的经历，了解到，spring的aop事务是通过代理实现的，而上面的代码A方法中直接调用B方法是内部直接调用。不会触发spring的代理机制，而是直接调用。所以事务无效。 解决方法1.直接注入法想到既然直接调用没有效果，那么像注入Dao一样，将Service自己注入到自己里面，在通过引用进行调用不就好了。 示例代码如下。 12345678910111213141516171819202122232425@Service("testService")public TestServiceImpl implments TestService&#123; @Autowired private TestService testService; /** * 对外的接口方法 */ public String A()&#123; ... testService.B(); ... &#125; @Transaction private String B()&#123; &#125;&#125; 实测这样的方式，事务是有效的。但是也会引起其他的一些问题（目前我的项目里面没有出现，网上有相关的讨论）。问题就是，这样的代码会造成对象引用的无限递归。据说在springboot中会出问题。 2. 工具获取法还有就是使用SpringUtil等工具动态获取self对象后调用方法。 12345678910111213141516171819202122@Service("testService")public TestServiceImpl implments TestService&#123; /** * 对外的接口方法 */ public String A()&#123; ... TestService testService = SpringUtil.getBean("testService", TestService.class); testService.B(); ... &#125; @Transaction private String B()&#123; &#125;&#125; 最后其实应该尽量避免这种方式的事务模式。实在没办法，还是建议使用第二种方式处理。]]></content>
+    <content type="text"><![CDATA[写在前面在最近的工作用dubbo修改发布restful协议的时候，遇到一个问题，dubbo内部写的是service，控制事务的时候，直接写了一个方法B，把A方法需要事务的内容放在里面。类似下面代码的方式进行调用，结果是事务无效。 12345678910111213141516171819202122@Service("testService")public TestServiceImpl implments TestService&#123; /** * 对外的接口方法 */ public String A()&#123; ... this.B(); ... &#125; @Transactional private String B()&#123; ... ... &#125;&#125; 原因查找一下资料和别人的经历，了解到，spring的aop事务是通过代理实现的，而上面的代码A方法中直接调用B方法是内部直接调用。不会触发spring的代理机制，而是直接调用。所以事务无效。 解决方法1.直接注入法想到既然直接调用没有效果，那么像注入Dao一样，将Service自己注入到自己里面，在通过引用进行调用不就好了。 示例代码如下。 12345678910111213141516171819202122232425@Service("testService")public TestServiceImpl implments TestService&#123; @Autowired private TestService testService; /** * 对外的接口方法 */ public String A()&#123; ... testService.B(); ... &#125; @Transactional private String B()&#123; ... ... &#125;&#125; 实测这样的方式，事务是有效的。但是也会引起其他的一些问题（目前我的项目里面没有出现，网上有相关的讨论）。问题就是，这样的代码会造成对象引用的无限递归。据说在springboot中会出问题。 2. 工具获取法还有就是使用SpringUtil等工具动态获取self对象后调用方法。 12345678910111213141516171819202122@Service("testService")public TestServiceImpl implments TestService&#123; /** * 对外的接口方法 */ public String A()&#123; ... TestService testService = SpringUtil.getBean("testService", TestService.class); testService.B(); ... &#125; @Transactional private String B()&#123; ... ... &#125;&#125; 最后其实应该尽量避免这种方式的事务模式。实在没办法，还是建议使用第二种方式处理。]]></content>
       <categories>
         <category>Java</category>
       </categories>
@@ -118,7 +141,7 @@
   <entry>
     <title><![CDATA[使用gradle给旧项目打包]]></title>
     <url>%2F2017%2F11%2F26%2Fgradle-build-old-project%2F</url>
-    <content type="text"><![CDATA[下载gradle并配置环境变量完成后在命令行输入gradle -v，查看是否配置正确。 建立配置文件在项目根目录新建名为build.gradle的配置文件。 文件中写入如下配置： 123456789101112131415161718192021222324252627282930313233343536apply plugin: 'war'// 设置 JDK 版本sourceCompatibility = 1.6// 设置 WebApp 根目录webAppDirName = 'WebRoot'// 设置 Java 源码所在目录sourceSets &#123; main &#123; java&#123; // 多个目录 srcDirs 单个用 srcDir '' srcDirs = ['soo','src/main/java','coresrc/main/java'] &#125; resources&#123; // 多个目录 srcDirs 单个用 srcDir '' srcDirs = ['src/main/resources','coresrc/main/resources'] &#125; &#125;&#125;// 设置 maven 库地址repositories &#123; maven &#123;url "http://maven.aliyun.com/nexus/content/groups/public/"&#125; mavenLocal()&#125;dependencies &#123; tasks.withType(JavaCompile) &#123; options.encoding = "GBK" &#125; // 本地依赖 compileOnly files('F:/lib/weblogic.jar','F:/lib/ojdbc14.jar') // 有网络是用maven // providedCompile 'javax.servlet:servlet-api:2.5' // 编译期 compile fileTree(dir: 'WebRoot/WEB-INF/lib', include: ['*.jar'])&#125; 因为我的项目有多个java源文件目录和资源目录所以配置的是srcDirs。如果只有一个目录，配置srcDir即可。至于每个配置项什么含义就需要自己找资料了，基本实现打包功能不需要很多的配置，像srcDir就是配置一下java源代码位置就好了。 编译打包在项目根目录打开命令行窗口，输入指令gradle clean build。如果成功会在结束时出现BUILD SUCCESSFUL。如果没有请查看报错信息，针对性的修改build.gradle里面的配置。 打包完成的war包就在 ./build/libs/目录下。 扩展上面说的都是自己用的，那么要是团队都来使用gradle，该如何统一。 假如现在项目组的同事也想和我一样使用gradle打包，直接的做法就是我将build.gradle提交svn，大家更新下来，安装gradle后，更改自己的本地依赖位置（其实既然使用了gradle，依赖可以都放到maven私有仓库，这样大家可以共用一套配置）。运行gradle clean build即可打包。 按照上面的做法，其实gradle和maven除了配置文件不同，基本没啥区别了。其实gradle提供了另一套便于统一协作的机制-gradlew。使用gradlew需要在项目根目录执行gradle init命令。会生成wapper的配置文件。可以将这些文件一同提交svn，其他同事更新后无需安装gradle，直接执行gradlew clean build。gradle会查找本地的gradle环境，没有的话会根据wapper配置去互联网下载对应版本的gradle进行编译打包。省去自行下载配置环境，还可以保持大家gradle版本的统一。 当然了，国内特殊原因，以及每个开发者所处的网络环境不同，下载速度也会受影响。上面的做法不一定能行的通，如果条件不允许，还是自己手动下载gradle并进行配置。]]></content>
+    <content type="text"><![CDATA[下载gradle并配置环境变量完成后在命令行输入gradle -v，查看是否配置正确。 建立配置文件在项目根目录新建名为build.gradle的配置文件。 文件中写入如下配置： 123456789101112131415161718192021222324252627282930313233343536apply plugin: 'war'// 设置 JDK 版本sourceCompatibility = 1.6// 设置 WebApp 根目录webAppDirName = 'WebRoot'// 设置 Java 源码所在目录sourceSets &#123; main &#123; java&#123; // 多个目录 srcDirs 单个用 srcDir '' srcDirs = ['soo','src/main/java','coresrc/main/java'] &#125; resources&#123; // 多个目录 srcDirs 单个用 srcDir '' srcDirs = ['src/main/resources','coresrc/main/resources'] &#125; &#125;&#125;// 设置 maven 库地址repositories &#123; maven &#123;url "http://maven.aliyun.com/nexus/content/groups/public/"&#125; mavenLocal()&#125;dependencies &#123; tasks.withType(JavaCompile) &#123; options.encoding = "GBK" &#125; // 本地依赖 compileOnly files('F:/lib/weblogic.jar','F:/lib/ojdbc14.jar') // 有网络是用maven // providedCompile 'javax.servlet:servlet-api:2.5' // 编译期 compile fileTree(dir: 'WebRoot/WEB-INF/lib', include: ['*.jar'])&#125; 因为我的项目有多个java源文件目录和资源目录所以配置的是srcDirs。如果只有一个目录，配置srcDir即可。至于每个配置项什么含义就需要自己找资料了，基本实现打包功能不需要很多的配置，像srcDir就是配置一下java源代码位置就好了。 编译打包在项目根目录打开命令行窗口，输入指令gradle clean build。如果成功会在结束时出现BUILD SUCCESSFUL。如果没有请查看报错信息，针对性的修改build.gradle里面的配置。 打包完成的war包就在 ./build/libs/目录下。 扩展上面说的都是自己用的，那么要是团队都来使用gradle，该如何统一。 假如现在项目组的同事也想和我一样使用gradle打包，直接的做法就是我将build.gradle提交svn，大家更新下来，安装gradle后，更改自己的本地依赖位置（其实既然使用了gradle，依赖可以都放到maven私有仓库，这样大家可以共用一套配置）。运行gradle clean build即可打包。 按照上面的做法，其实gradle和maven除了配置文件不同，基本没啥区别了。其实gradle提供了另一套便于统一协作的机制-gradlew（后来发现maven好像也有类似的功能，是我肤浅了）。使用gradlew需要在项目根目录执行gradle init命令。会生成wapper的配置文件。可以将这些文件一同提交svn，其他同事更新后无需安装gradle，直接执行gradlew clean build。gradle会查找本地的gradle环境，没有的话会根据wapper配置去互联网下载对应版本的gradle进行编译打包。省去自行下载配置环境，还可以保持大家gradle版本的统一。 当然了，国内特殊原因，以及每个开发者所处的网络环境不同，下载速度也会受影响。上面的做法不一定能行的通，如果条件不允许，还是自己手动下载gradle并进行配置。]]></content>
       <categories>
         <category>Java</category>
       </categories>
