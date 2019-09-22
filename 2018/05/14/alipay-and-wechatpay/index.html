@@ -503,40 +503,6 @@
           
   <div class="comments" id="comments">
     
-        <div onclick="showGitment()" id="gitment_title" class="gitment_title">显示 Gitment 评论</div>
-        <div id="container" style="display:none"></div>
-        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-        <script src="/lib/gitment.browser.js"></script>
-        <script>
-        const myTheme = {
-            render(state, instance) {
-                const container = document.createElement('div');
-                container.lang = "en-US";
-                container.className = 'gitment-container gitment-root-container';
-                container.appendChild(instance.renderHeader(state, instance));
-                container.appendChild(instance.renderEditor(state, instance));
-                container.appendChild(instance.renderComments(state, instance));
-                container.appendChild(instance.renderFooter(state, instance));
-                return container;
-            }
-        }
-        function showGitment() {
-            $("#gitment_title").attr("style", "display:none");
-            $("#container").attr("style", "").addClass("gitment_container");
-            var gitment = new Gitment({
-                id: window.location.pathname,
-                theme: myTheme,
-                owner: 'loanon',
-                repo: 'blog-comments',
-                oauth: {
-                    client_id: '19899f16bbe7f520b57e',
-                    client_secret: '70a021a0e0e577db13956d6fffcc59aef2cab997'
-                }
-            });
-            gitment.render('container');
-        }
-        </script>
-    
   </div>
 
         </div>
@@ -583,7 +549,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -605,7 +571,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">26</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
