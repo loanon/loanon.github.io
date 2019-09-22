@@ -422,7 +422,7 @@
 <p>这么看方法应该是对的，可惜没有买域名和vps，这个也是能自己这么玩玩了。</p>
 <h1 id="之后"><a href="#之后" class="headerlink" title="之后"></a>之后</h1><p>因为微信要是进行服务端重定向需要域名才行，只能到此为止了。</p>
 <p>之后突然想到，也可以通过js进行前端的判断，之后通过window.location.href进行“重定向”。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">id</span>=<span class="string">"message"</span>&gt;</span><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">function isAlipayOrWechat() &#123;</span></span><br><span class="line"><span class="undefined">    var userAgent = navigator.userAgent.toLowerCase();</span></span><br><span class="line"><span class="undefined">    if(userAgent.indexOf("alipay") != -1) &#123;</span></span><br><span class="line"><span class="undefined">        window.location.href="HTTPS://QR.ALIPAY.COM/FKX00483JOOAAMITN2W2C1";</span></span><br><span class="line"><span class="undefined">    &#125; else if(userAgent.indexOf("micromessenger") != -1) &#123;</span></span><br><span class="line"><span class="undefined">        window.location.href="wxp://f2f0fHq8R3hDDhWV4a6sKZrb5_EF0CGMljOP";</span></span><br><span class="line"><span class="undefined">    &#125;else&#123;</span></span><br><span class="line"><span class="undefined">        document.getElementById('message').innerHTML="请使用支付宝或者微信扫码";</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined">isAlipayOrWechat();</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">id</span>=<span class="string">"message"</span>&gt;</span><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">function isAlipayOrWechat() &#123;</span><br><span class="line">    var userAgent = navigator.userAgent.toLowerCase();</span><br><span class="line">    if(userAgent.indexOf("alipay") != -1) &#123;</span><br><span class="line">        window.location.href="HTTPS://QR.ALIPAY.COM/FKX00483JOOAAMITN2W2C1";</span><br><span class="line">    &#125; else if(userAgent.indexOf("micromessenger") != -1) &#123;</span><br><span class="line">        window.location.href="wxp://f2f0fHq8R3hDDhWV4a6sKZrb5_EF0CGMljOP";</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        document.getElementById('message').innerHTML="请使用支付宝或者微信扫码";</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">isAlipayOrWechat();</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>用nginx在局域网测试发现支付宝是可以成功的。微信前面说了有限制，也就没有尝试了</p>
 <p>这样只要一个html就可以，比如可以把这个html放到这个博客里面，这样不就不需要买域名和vps了。</p>
 <p>可是当我把文件放到博客之后，还是支付宝可以成功。微信扫码打开就只是一个空白页。看来微信做了限制，不允许通过window.location.href来指定页面请求。</p>
@@ -503,8 +503,41 @@
           
   <div class="comments" id="comments">
     
+        <div onclick="showGitment()" id="gitment_title" class="gitment_title">显示 Gitment 评论</div>
+        <div id="container" style="display:none"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+        const myTheme = {
+            render(state, instance) {
+                const container = document.createElement('div');
+                container.lang = "en-US";
+                container.className = 'gitment-container gitment-root-container';
+                container.appendChild(instance.renderHeader(state, instance));
+                container.appendChild(instance.renderEditor(state, instance));
+                container.appendChild(instance.renderComments(state, instance));
+                container.appendChild(instance.renderFooter(state, instance));
+                return container;
+            }
+        }
+        function showGitment() {
+            $("#gitment_title").attr("style", "display:none");
+            $("#container").attr("style", "").addClass("gitment_container");
+            var gitment = new Gitment({
+                id: window.location.pathname,
+                theme: myTheme,
+                owner: 'loanon',
+                repo: 'blog-comments',
+                oauth: {
+                    client_id: '19899f16bbe7f520b57e',
+                    client_secret: '70a021a0e0e577db13956d6fffcc59aef2cab997'
+                }
+            });
+            gitment.render('container');
+        }
+        </script>
+    
   </div>
-
 
         </div>
         
