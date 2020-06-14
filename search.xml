@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[简化代码的小技巧]]></title>
+    <url>%2F2020%2F04%2F30%2Fjava-code-skill%2F</url>
+    <content type="text"><![CDATA[简化代码的小技巧今天重构之前写的一段对账代码，基本逻辑是先校验，然后更新一下记录状态，然后处理对账主体的数据修改。抽象出来就是要三步，每一步出错或者校验不通过，就直接返回错误信息。抽象代码如下 12345678910111213141516171819202122public class Check&#123; public boolean first(Map&lt;String,String&gt; message)&#123; ... //出错或者校验不通过返回false，同时将错误信息保存到message中。 ... return true; &#125; public boolean second(Map&lt;String,String&gt; message)&#123; ... //出错或者校验不通过返回false，同时将错误信息保存到message中。 ... return true; &#125; public boolean last(Map&lt;String,String&gt; message)&#123; ... //出错或者校验不通过返回false，同时将错误信息保存到message中。 ... return true; &#125;&#125; 最直接写法如果不考虑其他，第一反应肯定是这么写 123456789101112131415161718192021public class Test&#123; public static void main(String[] args)&#123; Check check = new Check(); Map&lt;String,String&gt; message = new HashMap&lt;&gt;(); if(check.first(message))&#123; if(check.second(message))&#123; if(check.last(message))&#123; //commit; &#125;else&#123; //rollback; &#125; &#125; else&#123; //rollback; &#125; &#125;else&#123; //rollback; &#125; System.out.println(message.get("msg")); &#125;&#125; 没错，项目中的代码就是这么写的，多层if嵌套，抽象出来还能看懂，添加上大段的业务逻辑，看起来就费劲了。 第一步优化先来第一步优化，把多层if嵌套去掉。 1234567891011121314151617181920212223public class Test&#123; public static void main(String[] args)&#123; Check check = new Check(); Map&lt;String,String&gt; message = new HashMap&lt;&gt;(); if(!check.first(message))&#123; System.out.println(message.get("msg")); //rollback; return; &#125; if(!check.second(message))&#123; System.out.println(message.get("msg")); //rollback; return; &#125; if(!check.last(message))&#123; System.out.println(message.get("msg")); //rollback; return; &#125; //commit; &#125;&#125; 通过return提前返回，避免多层if嵌套。 再次精简我觉得写代码能有上面的觉悟已经不错了。不过无意中发现还有更简单的，但是好像不容易理解。代码如下： 12345678910111213public class Test&#123; public static void main(String[] args)&#123; Check check = new Check(); Map&lt;String,String&gt; message = new HashMap&lt;&gt;(); if(!check.first(message) || !check.second(message) || !check.last(message))&#123; System.out.println(message.get("msg")); //rollback; return; &#125; //commit; &#125;&#125; 利用判断条件的或，合并代码。原理是或判断如果前面的条件为真，就不再判断后面的条件。也就是前面如果报错，取反为真，则不判断后面的条件，直接进入if条件里面，也就不执行后面的代码而直接返回错误信息。只有当所有的操作都不报错，才会到最后的commit操作。]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Apache James 使用mysql存储启动报错Specified key was too long; max key length is 3072 bytes]]></title>
+    <url>%2F2020%2F04%2F10%2Fapache-james-1%2F</url>
+    <content type="text"><![CDATA[Apache James 使用mysql存储启动报错Specified key was too long; max key length is 3072 bytes没事捣鼓自建mail服务，作为java开发，肯定想到了java实现。刚好apache就有开源的James（Java Apache Mail Enterprise Server）。下载下来准备试试。 目前最新版是 3.4.0版本。 下载完成后网上找到教程进行配置。 因为针对mysql报错的问题。只记录数据源配置点。 修改数据源修改conf/james-database.properties中 1234567891011121314# Use derby as default# database.driverClassName=org.apache.derby.jdbc.EmbeddedDriver# database.url=jdbc:derby:../var/store/derby;create=true# database.username=app# database.password=appdatabase.driverClassName=com.mysql.jdbc.Driverdatabase.url=jdbc:mysql://127.0.0.1:3306/james?rewriteBatchedStatements=true&amp;useUnicode=true&amp;characterEncoding=utf8database.username=james#账密自行修改即可database.password=james # Supported adapters are:# DB2, DERBY, H2, HSQL, INFORMIX, MYSQL, ORACLE, POSTGRESQL, SQL_SERVER, SYBASE# vendorAdapter.database=DERBYvendorAdapter.database=MYSQL 因为教程中提示可能会报错，我提前在数据库中执行了下面脚本。12SET GLOBAL innodb_file_format = BARRACUDA;SET GLOBAL innodb_large_prefix = ON; 报错在bin目录下执行12启动报错。 org.apache.openjpa.persistence.PersistenceException: Specified key was too long; max key length is 3072 bytes {stmnt 2076356118 CREATE TABLE JAMES_MAIL_REPOS (MAIL_REPO_NAME VARCHAR(1024) NOT NULL, PRIMARY KEY (MAIL_REPO_NAME)) ENGINE = innodb} [code=1071, state=42000]` 分析这个问题和教程中提到的类似，网上查找是MySQL主键索引长度不够。 找到很多资料后得知：mysql默认索引长度最大长度是767bytes，如果是utf8编码（MySQL的utf8编码最长3byte）。只能用varchar(255)。开启innodb_large_prefix=on后索引长度最大长度是3072bytes，如果是utf8编码。应该能用varchar(1024)。而日志中的sql显示字段长度为1024。理论上不应该报错。 解决问题就在这编码上，按照上面的逻辑，字段长度乘以编码最大字节长度小于等于3072就可以。但是我使用的utf8mb4编码（MySQL独有的，最长4byte）。所以varchar(1024)最长就是4096&gt;3074。我删除原来的数据库，以utf8重新创建，启动不再报错。 这里要吐槽一下，其实uft8编码字符理论上可以最多到6个字节长，通常uft8使用1~4字节为每个字符编码（utf8是变长编码-霍夫曼编码）。但是MySQL最开始支持utf8的时候只做了最长3个字节（MySQL中的uft8）。后面为了兼容4个字节，又增加了uft8mb4（旧版本没有）。所以其实MySQL中utf8mb4才是真正的utf8。之前公司项目中为了支持emoji表情（4字节utf8编码），了解过MySQL的这段编码故事，所以MySQL中喜欢使用utf8mb4。结果就遇到了这个坑爹的问题。]]></content>
+      <tags>
+        <tag>Apache</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[梅林固件（ASUS AC86U）通过frp做内网穿透]]></title>
+    <url>%2F2020%2F01%2F08%2Fmerlin-frp%2F</url>
+    <content type="text"><![CDATA[梅林固件（ASUS AC86U）通过frp做内网穿透最近为了给域名备案买了台阿里云服务器（在上海没居住证还不能备案，还要再等等…）。想着服务器能干点啥，银子花了不能浪费呀！虽然按照经济学理论来说，沉没成本不是成本，但是不能浪费就对了。 这里要提一下，现在的ipv4太难搞了。家里之前安装的电信宽带，用的SDN随选网关，桥连都不能改，更别说公网ip了。现在家里的移动宽带也是一样。自己改了桥连。用新买的AC86U拨号。不得不说这个路由器还是很棒的。 扯远了。下面记录下具体操作。 frp先简单介绍一下frp。Github上有详细介绍。 这个软件很简单。主要就4个文件 frps frps.ini frpc frpc.ini 从名字就可以看出来，前面2个是服务端使用的软件和配置文件（s-&gt;server），后面2个是客户端使用的软件和配置文件（c-&gt;client）。 顺便说一下，因为存在服务端和客户端，就存在版本对应问题。就是服务端和客户端的版本要匹配。部分版本可以跨版本兼容（具体没有测试，网上看到有人提到）。我为了省事，都采用同一版本。一开始没注意这个问题。先在服务器一通操作，安装了frps-0.30.0。而梅林软件中心安装的frpc插件对应的版本是0.20.0，客户端一直无法正常连接到服务端。 准备材料 一台服务器（有公网ip）（网上也有别人搭建的免费服务器，自己看着办吧） 一台梅林路由器（其实华硕官改也行，主要要能安装插件）（推荐koolshare网站，上面有很多介绍） 路由器安装frpc插件在路由器的软件中心，选择frpc安装一下就好。 这里注意一下对应frpc的版本。因为我们最好是服务器的frps和客户端的frpc版本要一致。不然可能出现连接不上的问题。 服务端frps安装到frp的github仓库releases里面找到对应的frp版本（cpu型号和frp版本号） 因为我客户端插件的frpc版本是0.20.0。我就直接找0.20.0的文件。（不得不说更新真快，要不就是路由器插件更新地太慢！） 直接通过wget命令下载到服务器。 1wget https://github.com/fatedier/frp/releases/download/v0.20.0/frp_0.20.0_linux_amd64.tar.gz 下载完成后解压 1tar -xvf frp_0.20.0_linux_amd64.tar.gz 将文件夹移动到1234```bashmv frp_0.20.0_linux_amd64 /usr/local/frpcd /usr/local/frp 通过123456789```bash-rwxr-xr-x 1 root root 7434880 Jan 7 21:04 frpc-rw-r--r-- 1 root root 5694 Jan 7 21:04 frpc_full.ini-rw-r--r-- 1 root root 126 Jan 7 21:04 frpc.ini-rwxr-xr-x 1 root root 8871488 Jan 7 21:04 frps-rw-r--r-- 1 root root 2298 Jan 7 21:04 frps_full.ini-rw-r--r-- 1 root root 389 Jan 7 21:05 frps.ini-rw-r--r-- 1 root root 11358 Jan 7 21:04 LICENSE 这样基本算安装好了。 配置frps.ini1234567891011121314151617[common]bind_addr = 0.0.0.0bind_port = 7000 #给客户端连接的端口vhost_http_port = 80 #http协议服务端监听接口vhost_https_port = 443 #https协议服务端监听接口dashboard_addr = 0.0.0.0 dashboard_port = 7500 #控制台端口dashboard_user = admin #控制台用户名dashboard_pwd = admin #控制台密码log_file = ./frps.log #日志文件log_level = info #日志级别log_max_days = 3 #日志保留几天token = admin #这里设置你的frp tokenmax_pool_count = 50max_ports_per_client = 0#subdomain_host = frps.comtcp_mux = true 通过命令-c frps.ini```就可以启动服务。12后台启动命令为```nohup ./frps -c frps.ini &amp; 配置frpc插件插件我们使用自定义配置： 配置内容 1234567891011121314[common]server_addr = frps.frp.com #你的服务器地址，绑定域名更方便server_port = 7000 #服务器端口token = admin #服务器tokenlog_file = /tmp/frpc.log #服务器tokenlog_level = infolog_max_days = 3[web]type = http #访问协议privilege_mode = true local_ip = 192.168.0.1 #本地地址local_port = 80 #本地端口custom_domains = asus.frp.com #域名 点击提交就可以了。]]></content>
+      <categories>
+        <category>杂记</category>
+      </categories>
+      <tags>
+        <tag>梅林</tag>
+        <tag>ASUS</tag>
+        <tag>frp</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[hexo升级next主题并使用gitalk作为评论插件]]></title>
     <url>%2F2019%2F09%2F23%2Fhexo-theme-next-update-and-gitalk%2F</url>
     <content type="text"><![CDATA[升级主题先立标题，内容后续再补。 使用gitalk评论插件先立标题，内容后续再补。]]></content>
@@ -21,8 +53,8 @@
         <category>杂记</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
         <tag>gitment</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
