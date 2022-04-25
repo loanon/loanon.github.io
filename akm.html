@@ -17,6 +17,7 @@
   <pre id="J_output" class="output"></pre>
 <button id="J_btn_scanQR" class="btn btn-default">扫一扫二维码</button>
 <button id="J_btn_scanBAR" class="btn btn-default">扫一扫条形码</button>
+<button id="J_btn_hs" class="btn btn-default">核酸检测报告</button>
 </body>
 <script>
   var btnLocation = document.querySelector('#J_btn_location');
@@ -42,6 +43,12 @@
     }, function(res){
       ap.alert(res.code);
     });
+  });
+</script>
+<script>
+  var btnHS = document.querySelector('#J_btn_hs');
+  btnHS.addEventListener('click', function(){
+    window.location.href = "https://akm.ahzwfw.gov.cn/akm-hsjc/index.html#/nucleicAcidTestInfo"
   });
 </script>
 </html>
