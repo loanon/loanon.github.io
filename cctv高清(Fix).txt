@@ -49,4 +49,9 @@ http://120.210.193.151:8006/120000001001/wlds:8080/ysten-business/live/jiangsust
 http://120.210.193.151:8006/120000001001/wlds:8080/ysten-business/live/tianjinstv/1.m3u8
 #EXTINF:-1 tvg-id="38" tvg-name="山东卫视" tvg-logo="http://epg.51zmt.top:8000/tb1/ws/shandong.png" group-title="卫视",山东卫视
 http://120.210.193.151:8006/120000001001/wlds:8080/ysten-business/live/shandongstv/1.m3u8
-
+#EXTINF:-1 tvg-id="36" tvg-name="辽宁卫视" tvg-logo="http://epg.51zmt.top:8000/tb1/ws/liaoning.png" group-title="卫视",辽宁卫视
+http://120.210.193.151:8006/120000001001/wlds:8080/ysten-business/live/pltv-liaoningstv/1.m3u8
+#EXTINF:-1 tvg-id="34" tvg-name="深圳卫视" tvg-logo="http://epg.51zmt.top:8000/tb1/ws/shenzhen.png" group-title="卫视",深圳卫视
+http://120.210.193.151:8006/120000001001/wlds:8080/ysten-business/live/shenzhenstv/1.m3u8
+#EXTINF:-1 tvg-id="50" tvg-name="江西卫视" tvg-logo="http://epg.51zmt.top:8000/tb1/ws/jiangxi.png" group-title="卫视",江西卫视
+http://120.210.193.151:8006/120000001001/wlds:8080/ysten-business/live/jiangxistv/1.m3u8
