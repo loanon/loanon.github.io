@@ -66,7 +66,7 @@ http://120.210.193.151:8006/120000001001/wlds:8080/ysten-business/live/pltv-guiz
 #EXTINF:-1 tvg-logo="http://images.center.bcs.ottcn.com:8080/images/ysten/images/ysten/TV/GDJLWS/AHXKDHB29.jpg" group-title="卫视",吉林卫视
 http://120.210.193.151:8006/120000001002/XMTjlwshd/index.m3u8
 #EXTINF:-1 tvg-logo="http://images.center.bcs.ottcn.com:8080/images/ysten/images/ysten/TV/GDGDWS/AHXKDHB46.jpg" group-title="卫视",广东卫视
-http://120.210.193.151:8006/120000001001/wlds:8080/ysten-business/live/guangdongstv/1.m3u8
+http://hwrr.jx.chinamobile.com:8080/PLTV/88888888/224/3221225701/index.m3u8
 #EXTINF:-1 tvg-logo="http://images.center.bcs.ottcn.com:8080/images/ysten/images/ysten/TV/GDHBWS/AHXKDHB63.jpg" group-title="卫视",湖北卫视
 http://120.210.193.151:8006/120000001001/wlds:8080/ysten-business/live/pltv-hubeistv/1.m3u8
 #EXTINF:-1 tvg-logo="http://images.center.bcs.ottcn.com:8080/images/ysten/images/ysten/TV/GDHEBWS/AHXKDHB57.jpg" group-title="卫视",河北卫视
